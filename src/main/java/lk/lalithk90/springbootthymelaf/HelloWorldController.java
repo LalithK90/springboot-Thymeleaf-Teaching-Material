@@ -160,11 +160,24 @@ public class HelloWorldController {
         model.addAttribute("sampleList", createSample(2));
         return "/listShow.html";
     }
-    //drop-down list
+
     //combo box
     //radio button
     //check box
     //multiple check box
+
+    @GetMapping( "/fromAttribute" )
+    public String fromAttribute(Model model) {
+//radio
+        model.addAttribute("something", new Something());
+        model.addAttribute("simples", Simple.values());
+
+     model.addAttribute("oneValue", OneValue.values());
+ /*          model.addAttribute("singleCheckboxField", simple03s);
+        model.addAttribute("multiCheckboxAllValues", simple03s);*/
+
+        return "fromAttribute.html";
+    }
 
 
 }
@@ -197,4 +210,35 @@ class Simple02 {
     private String name;
     private String mobileNo;
 
+}
+
+@ToString
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+class Something {
+
+    private UUID id;
+    private String name;
+    private Simple simple;
+    private OneValue oneValue;
+}
+
+@Getter
+@AllArgsConstructor
+enum Simple {
+    MALE("Male"),
+    FEMALE("Female"),
+    OTHER("Other");
+
+    private String simple;
+}
+
+@Getter
+@AllArgsConstructor
+enum OneValue {
+    MALE("Male");
+
+    private String oneValue;
 }

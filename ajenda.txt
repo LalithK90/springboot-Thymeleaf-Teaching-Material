@@ -46,3 +46,4 @@
         vii.  how to validate frontend filed {HTML 5 and javascript}
 6. create rest controller
 7. take data from using javascript and display on html page
+8. add bootstrap and font awesome using web jar {find it maven repository}

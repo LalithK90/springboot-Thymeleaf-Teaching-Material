@@ -1,16 +1,16 @@
 package lk.lalithk90.springbootthymelaf.employee.entity;
 
+import lk.lalithk90.springbootthymelaf.employee.entity.Enum.CivilStatus;
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.GeneratorType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.awt.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,30 +18,19 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@ToString
 public class Employee {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private int id;
 
-    @NotNull( message = "Pay roll number is required" )
-    @Column( unique = true )
-    private String payRoleNumber;
-
+    @NotNull( message = "Name is required" )
     @Size( min = 5, message = "Your name cannot be accept" )
     private String name;
 
-    @Size( min = 5, message = "At least 5 characters should be include calling name" )
-    private String callingName;
-
-    @Size( max = 12, min = 10, message = "NIC number is contained numbers between 9 and X/V or 12 " )
-    @Column( unique = true )
-    private String nic;
-
-    @Column( unique = true )
-    private String departmentIdNumber;
-
     @Size( max = 10, message = "Mobile number length should be contained 10 and 9" )
-    private String mobileOne;
+    private String mobile;
+
     @Size( max = 10, message = "Land number length should be contained 10 and 9" )
     private String land;
 
@@ -51,28 +40,23 @@ public class Employee {
 
     private String address;
 
+    @Enumerated(EnumType.STRING)
+    private CivilStatus civilStatus;
     /*Date format */
     @DateTimeFormat( pattern = "yyyy-MM-dd" )
     private LocalDate dateOfBirth;
-
-    @DateTimeFormat( pattern = "yyyy-MM-dd" )
-    private LocalDate dateOfAssignment;
-
     /*Mapping -- start */
-    @ManyToOne
-    private Title title;
-
     @ManyToOne
     private Gender gender;
 
     @ManyToOne
     private Designation designation;
 
-    @ManyToOne
-    private CivilStatus civilStatus;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List< Hobbies > hobbiesList;
 
-    @ManyToOne
-    private EmployeeStatus employeeStatus;
+    @OneToMany
+    private List< WeekDay > weekDays;
 
 /*    @OneToMany( mappedBy = "employee", fetch = FetchType.EAGER )
     @Fetch( value = FetchMode.SUBSELECT )

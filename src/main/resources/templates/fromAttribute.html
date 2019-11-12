@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="fragment/header"></style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="col-sm-12 form-inline">
+        <div class="col-sm-4 bg-info"> asada</div>
+        <div class="col-sm-4 bg-secondary">dasd</div>
+        <div class="col-sm-4 bg-dark">dadas</div>
+    </div>
+
+    <div>
+        <i class="fas fa-address-card" aria-hidden="true"></i>
+        <i class="fas fa-car"></i>
+        <i class="fas fa-car" style="font-size:48px;"></i>
+        <i class="fas fa-car" style="font-size:60px;color:red;"></i>
+        <i class="fa fa-align-center" aria-hidden="true"></i>
+        <i class="fas fa-address-card  "></i>
+    </div>
+    <h1>Form element show - start</h1>
+    <div class="flex-column">
+
+        <div class="col bg-success">
+            <h1>Radio box</h1>
+
+            <form class="form" action="" th:object="${something}">
+                <ul>
+                    <li th:each="simple : ${simples}">
+                        <input class="form-control" type="radio" th:value="${simple}" th:field="*{simple}"/>
+                        <label class="label"
+                               th:for="${#ids.prev('simple')}"
+                               th:text="${simple.simple}"></label>
+                    </li>
+                </ul>
+                <p>This is the code i used </p>
+                <pre>
+                &lt;ul&gt;
+                    &lt;li th:each="simple : ${simples}"&gt;
+                        &lt;input type="radio" th:value="${simple}" th:field="*{simple}"/&gt;
+                        &lt;label th:for="${#ids.prev('simple')}" th:text="${simple.simple}"&gt;&lt;/label&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            </pre>
+                <p>Code explanation</p>
+                <pre>
+
+            </pre>
+            </form>
+        </div>
+        <hr>
+
+
+        <div class="col bg-dark text-light">
+            <h1>Drop down </h1>
+
+            <form class="form" action="" th:object="${something}">
+                <select th:field="*{simple}">
+                    <option value=""> Please Select</option>
+                    <option
+                            th:each="simple: ${simples}"
+                            th:value="${simple}"
+                            th:filed="*{simple}"
+                            th:text="${simple.simple}"></option>
+                </select>
+                <!--Special Note
+  if you need to select which list come from backend
+                                        |           | pre defined method thymeleaf library
+                                        ^           ^
+                th:selected="${selectedTagList.contains(atag.id)}"
+                                                            ^
+                                                            | relevant part id                 -->
+
+                <p>This is the code i used </p>
+                <pre class="text-light">
+                &lt;select th:field="*{simple}"&gt;
+                    &lt;option value=""&gt; Please Select&lt;/option&gt;
+                    &lt;option
+                        th:each="simple: ${simples}"
+                        th:value="${simple}"
+                        th:filed="*{simple}"
+                        th:text="${simple.simple}"&gt;
+                    &lt;/option&gt;
+                &lt;/select&gt;
+            </pre>
+                <p>Code explanation</p>
+                <pre>
+
+            </pre>
+            </form>
+        </div>
+        <hr>
+
+        <div class="col bg-warning">
+            <h1>Check box</h1>
+
+            <form class="form" action="" th:object="${something}">
+                <div>
+                    <label class="label" th:for="oneValue" th:text="'One Value is Selected:'"></label>
+                    <input class="form-control" type="checkbox" th:value="${oneValue}" th:field="*{oneValue}"/>
+                </div>
+
+                when used like not need to id to identify label and name
+                <p>This is the code i used </p>
+                <pre>
+                &lt;div&gt;
+                    &lt;label th:for="oneValue" th:text="'One Value is Selected:'"&gt;&lt;/label&gt;
+                    &lt;input type="checkbox" th:value="${oneValue}" th:field="*{oneValue}"/&gt;
+                &lt;/div&gt;
+            </pre>
+                <p>Code explanation</p>
+                <pre>
+
+            </pre>
+            </form>
+        </div>
+        <hr>
+
+        <div class="col-xs-1-12 bg-secondary">
+            <h1>Multiple Check box</h1>
+
+            <form class="form" action="" th:object="${something}">
+                <ul>
+                    <li th:each="simple: ${simples}">
+                        <input class="form-check-input" type="checkbox"
+                               th:field="*{simple}"
+                               th:value="${simple.simple}"/>
+                        <label class="form-check-label"
+                               th:for="${#ids.prev('simple')}"
+                               th:text="${simple.simple }"></label>
+                    </li>
+                </ul>
+
+                <p>This is the code i used </p>
+                <pre>
+                    &lt;ul&gt;
+                        &lt;li th:each="simple: ${simples}"&gt;
+                            &lt;input type="checkbox" th:field="*{simple}" th:value="${simple.simple}"/&gt;
+                            &lt;label th:for="${#ids.prev('simple')}" th:text="${simple.simple }"&gt;&lt;/label&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                </pre>
+                <p>Code explanation</p>
+                <pre>
+
+              </pre>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:replace="fragment/footer"></script>
+</body>
+</html>
