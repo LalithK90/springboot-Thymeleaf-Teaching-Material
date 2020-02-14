@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<div class="container-fluid">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="h1">Hey ..</div>
+            <div class="offset-2">
+                <h3 class="text-info text-center text-truncate textLayer-shadow">Welcome to Spring boot With Thymeleaf</h3>
+            <h2>First Input View</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Inputs Form</h4>
+                    <form class="form-inline" action="/firstInput" method="POST">
+                        <div class="form-group">
+                            <label for="name">Enter name : &nbsp;</label>
+                            <input type="text" name="name" id="name" class="form-control"
+                                   placeholder="Please enter valid name"
+                                   aria-describedby="helpId">
+                        </div>
+                        &nbsp;&nbsp;
+                        <button type="submit" class="btn btn-outline-success"><i class="fa fa-thumbs-up"></i>
+                            &nbsp;
+                        Add</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:replace="~{fragments/footer :: footerFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
+</html>

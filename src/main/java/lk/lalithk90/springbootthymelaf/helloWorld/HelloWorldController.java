@@ -1,6 +1,9 @@
-package lk.lalithk90.springbootthymelaf;
+package lk.lalithk90.springbootthymelaf.helloWorld;
 
-import lombok.*;
+
+
+import lk.lalithk90.springbootthymelaf.exampleResourceClass.Simple01;
+import lk.lalithk90.springbootthymelaf.exampleResourceClass.Simple02;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +24,7 @@ public class HelloWorldController {
         String replace = result.replace("{", "<div>");
         String replace1 = replace.replace("}", "</div>");
         model.addAttribute("data", replace1);
-        return "/urlTest.html";
+        return "/hello/urlTest";
     }
 
     List< Simple01 > simple01List = new ArrayList<>();
@@ -86,7 +89,7 @@ public class HelloWorldController {
     @GetMapping( "/step1" )
     public String step01() {
         System.out.println("I'm here");
-        return "/hello.html";
+        return "/hello/hello";
     }
 
     // 2st step (how send data and catch from frontend)
@@ -94,7 +97,7 @@ public class HelloWorldController {
     public String step02(Model model) {
         System.out.println("how send data and catch to frontend");
         model.addAttribute("hello", "I'm come from Sri Lanka");
-        return "/hello1.html";
+        return "/hello/hello1";
     }
 
     // 3st step (how send from to fill data)
@@ -105,7 +108,7 @@ public class HelloWorldController {
         model.addAttribute("simpleList", simple01List);
         model.addAttribute("show", false);
         model.addAttribute("idShow", false);
-        return "/hello3.html";
+        return "/hello/hello3";
     }
 
 
@@ -132,7 +135,7 @@ public class HelloWorldController {
     public String getDetails(@PathVariable( "id" ) int id, Model model) {
         model.addAttribute("data", simple01List.get(id));
         model.addAttribute("show", true);
-        return "/hello3.html";
+        return "/hello/hello3";
     }
 
     //step5 give on object details to edit
@@ -141,7 +144,7 @@ public class HelloWorldController {
         model.addAttribute("simple", simple01List.get(id));
         model.addAttribute("show", false);
         model.addAttribute("idShow", true);
-        return "/hello3.html";
+        return "/hello/hello3";
     }
 
     //step5 give on object details to edit
@@ -158,87 +161,7 @@ public class HelloWorldController {
     @GetMapping( "/show/list" )
     public String showList(Model model) {
         model.addAttribute("sampleList", createSample(2));
-        return "/listShow.html";
+        return "/hello/listShow";
     }
 
-    //combo box
-    //radio button
-    //check box
-    //multiple check box
-
-    @GetMapping( "/fromAttribute" )
-    public String fromAttribute(Model model) {
-//radio
-        model.addAttribute("something", new Something());
-        model.addAttribute("simples", Simple.values());
-
-     model.addAttribute("oneValue", OneValue.values());
- /*          model.addAttribute("singleCheckboxField", simple03s);
-        model.addAttribute("multiCheckboxAllValues", simple03s);*/
-
-        return "fromAttribute.html";
-    }
-
-
-}
-
-
-@ToString
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-class Simple01 {
-
-    private UUID id = UUID.randomUUID();
-    private String name;
-    private String mobileNo;
-    private String address;
-
-    private List< Simple02 > simple02s;
-
-}
-
-@ToString
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-class Simple02 {
-
-    private UUID id;
-    private String name;
-    private String mobileNo;
-
-}
-
-@ToString
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-class Something {
-
-    private UUID id;
-    private String name;
-    private Simple simple;
-    private OneValue oneValue;
-}
-
-@Getter
-@AllArgsConstructor
-enum Simple {
-    MALE("Male"),
-    FEMALE("Female"),
-    OTHER("Other");
-
-    private String simple;
-}
-
-@Getter
-@AllArgsConstructor
-enum OneValue {
-    MALE("Male");
-
-    private String oneValue;
 }

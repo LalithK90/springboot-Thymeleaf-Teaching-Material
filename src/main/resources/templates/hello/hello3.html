@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style th:replace="fragment/header"></style>
+    <title>Thymeleaf Springboot </title>
 </head>
 <body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 <h1>Fill From to send data to DB</h1>
 <!--data add from-->
 <div th:if="${show == false}">
@@ -77,6 +77,8 @@
     </div>
 </div>
 
-<script th:replace="fragment/footer"></script>
+
+<script th:replace="~{fragments/footer :: footerFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
 </body>
 </html>

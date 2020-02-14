@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
     <title>Thymeleaf Springboot </title>
-    <style th:replace="fragment/header"></style>
 </head>
 <body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
 <div class="container-fluid">
     <!--Employee Add From and Edit Form-->
     <div class="bg-secondary">
@@ -210,6 +210,7 @@
     <!--Searched employee Display area-->
     <div class="container-fluid"></div>
 </div>
-<script th:replace="fragment/footer"></script>
+<script th:replace="~{fragments/footer :: footerFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
 </body>
 </html>

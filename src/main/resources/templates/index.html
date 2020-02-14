@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<div class="container-fluid">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="h1">Hey ..</div>
+            <div class="offset-2">
+                <h3 class="text-info text-center text-truncate textLayer-shadow">Welcome to Spring boot With
+                                                                                 Thymeleaf</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 align-content-start">
+            <div class="list-group" id="nav-tabList" role="tablist">
+                <a href="#firstPage" id="firstPage-detail" class="list-group-item list-group-item-action active"
+                   data-toggle="list" role="tab" aria-controls="home" aria-selected="true">First Page</a>
+                <a href="#firstParameter" id="firstParameter-detail" class="list-group-item list-group-item-action"
+                   data-toggle="list" role="tab" aria-controls="profile" aria-selected="false">First Parameter Send
+                                                                                               To view</a>
+                <a href="#firstInputEnterPage" id="firstInputEnterPage-detail"
+                   class="list-group-item list-group-item-action"
+                   data-toggle="list" role="tab" aria-controls="messages" aria-selected="false">First Input Enter
+                                                                                                Page</a>
+                <a href="#firstInputEnteredShowPage" id="firstInputEnteredShowPage-detail"
+                   class="list-group-item list-group-item-action"
+                   data-toggle="list" role="tab" aria-controls="settings">Enter Input show</a>
+            </div>
+        </div>
+        <div class="col-9 align-content-center">
+            <div class="tab-content" id="nav-tabContent">
+                <!--First page-->
+                <div id="firstPage" class="tab-pane fade active show" role="tabpanel"
+                     aria-labelledby="firstPage-detail">
+                    <div class="jumbotron">
+                        <div class="h2"> How To Do It</div>
+                        <ol>
+                            <li> Create new package (firstView) in root project</li>
+                            <li> Create FirstViewController.class and make method firstPageView()</li>
+                            <li> Create a new directory firstView in resource > template</li>
+                            <li> Create a new firstPageView.html</li>
+                        </ol>
+                        <p> Example </p>
+                        <a href="/firstPageView" class="btn btn-outline-primary"> <i class="fa fa-thumbs-up"></i>
+                            &nbsp;Click Here </a>
+                    </div>
+                </div>
+                <!--First Paramter-->
+                <div id="firstParameter" class="tab-pane fade" role="tabpanel" aria-labelledby="firstParameter-detail">
+                    <div class="jumbotron">
+                        <div class="h2"> How To Do It</div>
+                        <ol>
+                            <li> Create new package (firstView) in root project</li>
+                            <li> Create FirstViewController.class and make method firstParameterSendView()</li>
+                            <li> Create a new directory firstView in resource > template</li>
+                            <li> Create a new firstParameterView.html</li>
+                        </ol>
+                        <p> Example </p>
+                        <a href="/firstParameterSendView" class="btn btn-outline-primary"> <i
+                                class="fa fa-thumbs-up"></i>
+                            &nbsp;Click Here </a>
+                    </div>
+                </div>
+                <!--First input enter page-->
+                <div id="firstInputEnterPage" class="tab-pane fade" role="tabpanel"
+                     aria-labelledby="firstInputEnterPage-detail">
+                    <div class="jumbotron">
+                        <div class="h2"> How To Do It</div>
+                        <ol>
+                            <li> Create new package (firstView) in root project</li>
+                            <li> Create FirstViewController.class and make method firstInputEnterPage()</li>
+                            <li> Create a new directory firstView in resource > template</li>
+                            <li> Create a new firstInput.html</li>
+                        </ol>
+                        <p> Example </p>
+                        <a href="/firstInput" class="btn btn-outline-primary"> <i
+                                class="fa fa-thumbs-up"></i>
+                            &nbsp;Click Here </a>
+                    </div>
+                </div>
+                <!--Entered First inputs page-->
+                <div id="firstInputEnteredShowPage" class="tab-pane fade" role="tabpanel"
+                     aria-labelledby="firstInputEnteredShowPage-detail">
+                    <div class="jumbotron">
+                        <div class="h2"> How To Do It</div>
+                        <ol>
+                            <li> Create new package (firstView) in root project</li>
+                            <li> Create FirstViewController.class and make method enteredInputsViewPage()</li>
+                            <li> Create a new directory firstView in resource > template</li>
+                            <li> Create a new enteredInputsPage.html</li>
+                        </ol>
+                        <p> Example </p>
+                        <a href="/enteredInputs" class="btn btn-outline-primary"> <i
+                                class="fa fa-thumbs-up"></i>
+                            &nbsp;Click Here </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:replace="~{fragments/footer :: footerFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
+</html>

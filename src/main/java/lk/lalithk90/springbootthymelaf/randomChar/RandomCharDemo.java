@@ -1,4 +1,4 @@
-package lk.lalithk90.springbootthymelaf;
+package lk.lalithk90.springbootthymelaf.randomChar;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

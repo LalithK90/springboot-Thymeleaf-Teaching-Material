@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style th:replace="fragment/header"></style>
+    <title>Thymeleaf Springboot </title>
 </head>
 <body>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<div class="container">
+    <div class="jumbotron"></div>
+</div>
 <div class="container-fluid">
     <div class="col-sm-12 form-inline">
         <div class="col-sm-4 bg-info"> asada</div>
@@ -151,6 +154,8 @@
         </div>
     </div>
 </div>
-<script th:replace="fragment/footer"></script>
+
+<script th:replace="~{fragments/footer :: footerFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
 </body>
 </html>

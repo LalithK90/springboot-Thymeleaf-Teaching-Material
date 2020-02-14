@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/header :: headerFragment}">
     <meta charset="UTF-8">
-    <title>List Show</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            border: 1px solid black;
-        }
-
-        table th {
-            border: 1px solid black;
-            padding: 20px;
-        }
-    </style>
-    <style th:replace="fragment/header"></style>
+    <title>Thymeleaf Springboot </title>
 </head>
 <body>
-<h1>List with list - show</h1>
+<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
+<style>
+    table {
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
 
+    table th {
+        border: 1px solid black;
+        padding: 20px;
+    }
+</style>
 <div class="container" style="margin: 20px; padding: 20px; text-align: left;">
     <div class="table-responsive">
         <table class="table table-striped table-condensed text-center" id="myTable" style="">
@@ -51,6 +49,8 @@
         </table>
     </div>
 </div>
-<script th:replace="fragment/footer"></script>
+
+<script th:replace="~{fragments/footer :: footerFragment}"></script>
+<script th:replace="~{fragments/script :: scriptFragment}"></script>
 </body>
 </html>
