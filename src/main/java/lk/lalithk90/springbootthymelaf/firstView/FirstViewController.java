@@ -1,5 +1,6 @@
 package lk.lalithk90.springbootthymelaf.firstView;
 
+import lk.lalithk90.springbootthymelaf.firstView.entityClass.Enum.SampleEnum;
 import lk.lalithk90.springbootthymelaf.firstView.entityClass.FirstInput;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import java.util.List;
 
 @Controller
 public class FirstViewController {
+    // input list
+    List< FirstInput > firstInputs = new ArrayList<>();
+
     //first page view
     @GetMapping( "/firstPageView" )
     public String firstPageView() {
@@ -24,14 +28,13 @@ public class FirstViewController {
         model.addAttribute("firstParameter", "Hey \n I am first Parameter");
         return "firstView/firstParameterView";
     }
-    // input list
-    List< FirstInput > firstInputs = new ArrayList<>();
+
     //input enter page show
     @GetMapping( "/firstInput" )
     public String firstInputEnterPage(Model model) {
         model.addAttribute("messageStatus", false);
         model.addAttribute("inputs", firstInputs);
-          return "firstView/firstInput";
+        return "firstView/firstInput";
     }
 
     // entered input send to firstInputs array and recall to input enter page show
@@ -42,10 +45,18 @@ public class FirstViewController {
         model.addAttribute("message", "Successfully add Your entered name to list...");
         return "redirect:/firstInput";
     }
-//enter data list send to font end
-    @GetMapping("/enteredInputs")
+
+    //enter data list send to font end
+    @GetMapping( "/enteredInputs" )
     public String enteredInputsViewPage(Model model) {
         model.addAttribute("inputs", firstInputs);
         return "firstView/enteredInputsPage";
+    }
+
+    // show enum data send to front-end and show
+    @GetMapping( "/sampleEnum" )
+    public String sampleEnum(Model model) {
+        model.addAttribute("enumValues", SampleEnum.values());
+        return "firstView/enumView";
     }
 }

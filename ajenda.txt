@@ -1,5 +1,6 @@
-1. create springboot project using spring initializer
-2. create database name with spring_thymeleaf
+
+create springboot project using spring initializer
+create database name with spring_thymeleaf
 
 ===========================Springboot file Structure ===================
             +--- src/
@@ -24,26 +25,49 @@
             +--- pom.xml or build.gradle
 
 ===========================================================================
+        //first page view
+        //first parameter send to view
+        //input enter page show
+        // entered input send to firstInputs array and recall to input enter page show
+        //enter data list send to font end
+        // show enum data send to front-end and show
+        // show form input show front-end with
+            //->{ 1 }. from
+            //->{ 2 }. simple text field.
+            //->{ 3 }. text area.
+            //->{ 4 }. date field.
+            //->{ 5 }. color filed.
+            //->{ 6 }. single checkbox field.
+            //->{ 7 }. single checkbox field multiple.
+            //->{ 8 }. Single-Select Radio Button Set.
+            //->{ 9 }. Single-Select Dropdown Field.
+            //->{ 10 }. Form validation.
+            //->{ 11 }. if and unless.
+            //->{ 12 }. switch and case.
+            //->{ 13 }. each.
+            //->|---->{ 1 }. index
+            //->|---->{ 2 }. count
+            //->|---->{ 3 }. size
+            //->|---->{ 4 }. current
+            //->|---->{ 5 }. even/odd
+            //->|---->{ 6 }. first/last
+            //->{ 14 }. database create after build db connection.
+            //->{ 15 }. create a database using lombok annotation and persistence annotation.
+            //  {===============using dao=> service=> controller persist and retrieve from db=========}
+            //  =======================================================================================
+            //->{ 16 }. @OneToOne.                         -|
+            //->{ 17 }. @OneToMany.                         |
+            //->{ 18 }. @ManyToOne.                         |   1.Instuctor
+            //->{ 19 }. @ManyToMany.                        |-  2.InstuctorDetail
+            //->{ 20 }. Using cascade type and fetch type.  |   3.Student
+            //->{ 21 }. @Transient attribute .              |
+            //->{ 22 }. CURD Operation.                    -|
 
-3. create employee entity and relevant service and DAO class
-4. create employeeController and make relevant method display data and save method
-    controller structure normal
-        i.      show all details give to frontend
-        ii.     show one object details give to frontend
-        iii.    data add from give to frontend
-        iv.     data add and update method
-        v.      data give to frontend to edit object
-        vi.     data delete method
-        vii.    data search form give to frontend
-        viii.   data search method
-5. create thymeleaf view display data, add data form and details list
-        i.    how to data list display
-        ii.   how create link
-        iii.  how to load data combobox to enum class
-        iv.   how to load data radio button
-        v.    how to create multiple selection
-        vi.   how to manage textarea
-        vii.  how to validate frontend filed {HTML 5 and javascript}
-6. create rest controller
-7. take data from using javascript and display on html page
-8. add bootstrap and font awesome using web jar {find it maven repository}
+            //->{ 23 }. Spring security - add and validation.
+            //->{ 24 }. Create report using itext - pdf.
+            //->{ 25 }. google report and chart.js.
+            //->{ 26 }. google - email.
+            //->{ 27 }. twilio - message.
+            //->{ 28 }. build out put jar file.
+
+
