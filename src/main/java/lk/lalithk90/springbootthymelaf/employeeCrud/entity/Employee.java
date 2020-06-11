@@ -57,4 +57,5 @@ public class Employee {
     @OneToMany
     private List< WeekDay > weekDays;
 
+
 }

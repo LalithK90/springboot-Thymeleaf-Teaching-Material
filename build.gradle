@@ -41,9 +41,11 @@ dependencies {
     compile group: 'org.apache.poi', name: 'poi', version: '3.8'
     /*pdf generate related*/
     //================= Following jar is need to generate pdf file -https://mvnrepository.com/artifact/com.itextpdf/itextpdf =================//
-    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.9'
+   compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13.1'
     // ==== this is need to html content convert to pdf
-    compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.9'
+  //  compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.9'
+// https://mvnrepository.com/artifact/com.itextpdf/itext7-core
+    //compile group: 'com.itextpdf', name: 'itext7-core', version: '7.1.11'
 
 
 //====== use as three jars to set bootstrap and front awesome
@@ -62,8 +64,10 @@ dependencies {
     compile group: 'org.webjars', name: 'pdf-js', version: '2.3.200'
 
 // https://mvnrepository.com/artifact/org.webjars.npm/chart.js
-    compile group: 'org.webjars.npm', name: 'chart.js', version: '2.9.3'
+    //compile group: 'org.webjars.npm', name: 'chart.js', version: '2.9.3'
 
+// https://mvnrepository.com/artifact/org.jfree/jfreechart
+    compile group: 'org.jfree', name: 'jfreechart', version: '1.5.0'
 
 // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-gradle-plugin -- from build jar file
     compile group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.2.2.RELEASE', ext: 'pom'

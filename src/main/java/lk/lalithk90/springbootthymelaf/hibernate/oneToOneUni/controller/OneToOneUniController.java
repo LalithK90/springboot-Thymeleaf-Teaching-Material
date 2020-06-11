@@ -15,7 +15,7 @@ public class OneToOneUniController {
     public OneToOneUniController(InstructorOneToOneUniService instructorOneToOneUniService) {
         this.instructorOneToOneUniService = instructorOneToOneUniService;
     }
-    @GetMapping("/oneToOneUniDemo")
+    @GetMapping("/oneToOneUni")
     public void oneToOneUniDemo(){
         oneToOneUniCreate();
         System.out.println("Created list...........\n Show Saved item");

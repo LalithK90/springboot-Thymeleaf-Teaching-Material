@@ -26,8 +26,8 @@
                                            placeholder="Enter Name Here"
                                            aria-describedby="simpleTextId" required>
                                     <small id="simpleTextId" class="text-muted">Simple Text Filed</small>
-                                    <p class="invalid-feedback"> Name is required</p>
-                                    <!-- <p class="invalid-feedback" th:if="${#fields.hasErrors('simpleText')}"
+                                    <p class="text-danger"> Name is required</p>
+                                    <!-- <p class="text-danger" th:if="${#fields.hasErrors('simpleText')}"
                                         th:errors="*{simpleText}">Error
                                                                                                                Name</p>-->
                                 </div>
@@ -103,7 +103,7 @@
                             <!--Radio button-->
                             <div class="col">
                                 <div class="custom-control custom-radio" th:each="radioButton : ${radioButtons}">
-                                    <input type="radio" class="custom-control-input" name="radioButton"
+                                    <input type="radio" class="custom-control-input"
                                            th:value="${radioButton.id}" th:field="*{radioButton}"/>
                                     <label class="custom-control-label" th:for="${#ids.prev('radioButton')}"
                                            th:text="${radioButton.name}"> radio
