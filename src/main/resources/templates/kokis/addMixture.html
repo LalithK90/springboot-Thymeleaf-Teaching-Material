@@ -9,45 +9,46 @@
 <!--/* Nav bar is included */-->
 <nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
 
-<h1>Add Mixture</h1>
+<h1><span data-th-text="${addStatus?'Update Mixture':'Add Mixture'}"></span></h1>
 
 <div class="container">
-    <form action="/kokis" method="post">
+    <form action="/kokis" data-th-object="${mixture}" method="post">
+        <input type="text"data-th-field="*{id}" data-th-if="${addStatus}" hidden readonly>
         <div class="form-group">
-            <label for="flour">Flour</label>
-            <input aria-describedby="flourId" class="form-control" id="flour" name="flour" placeholder="Enter Name"
+            <label data-th-for="${'flour'}">Flour</label>
+            <input aria-describedby="flourId" class="form-control" data-th-field="*{flour}" placeholder="Enter Name"
                    type="text">
             <small class="form-text text-muted" id="flourId">Please enter flour name</small>
         </div>
         <div class="form-group">
-            <label for="coconutMilk">Coconut Milk</label>
-            <input aria-describedby="coconutMilkId" class="form-control" id="coconutMilk" name="coconutMilk"
+            <label data-th-for="${'coconutMilk'}">Coconut Milk</label>
+            <input aria-describedby="coconutMilkId" class="form-control" data-th-field="*{coconutMilk}"
                    placeholder="Enter Name"
                    type="text">
             <small class="form-text text-muted" id="coconutMilkId">Please enter flour name</small>
         </div>
         <div class="form-group">
-            <label for="abc">Salt</label>
-            <input aria-describedby="saltId" class="form-control" id="abc" name="salt" placeholder="Enter Name"
-                   type="text" required>
+            <label data-th-for="${'salt'}">Salt</label>
+            <input aria-describedby="saltId" class="form-control" data-th-field="*{salt}" placeholder="Enter Name"
+                   required type="text">
             <small class="form-text text-muted" id="saltId">Please enter flour name</small>
         </div>
         <div class="form-group">
-            <label for="egg">Egg</label>
-            <input aria-describedby="eggId" class="form-control" id="egg" name="egg"
-                   placeholder="Enter Name"
-                   type="text" autocomplete="off">
+            <label data-th-for="${'egg'}">Egg</label>
+            <input aria-describedby="eggId" autocomplete="off" class="form-control" data-th-field="*{egg}"
+                   placeholder="Enter Name" type="text">
+            <p class="text-danger" data-th-errors="*{egg}" data-th-if="${#fields.hasErrors('egg')}">Error Name</p>
             <small class="form-text text-muted" id="eggId">Please enter flour name</small>
         </div>
         <div class="form-group">
-            <label for="sugar">Sugar</label>
-            <input aria-describedby="sugarId" class="form-control" id="sugar" name="sugar"
+            <label data-th-for="${'sugar'}">Sugar</label>
+            <input aria-describedby="sugarId" class="form-control" data-th-field="*{sugar}"
                    placeholder="Enter Name"
                    type="text">
             <small class="form-text text-muted" id="sugarId">Please enter flour name</small>
         </div>
         <button class="btn btn-warning" type="reset">Reset</button>
-        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-success" type="submit"><span data-th-text="${addStatus?'Update':'Save'}"></span></button>
 
     </form>
 </div>

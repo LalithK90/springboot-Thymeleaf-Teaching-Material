@@ -4,6 +4,8 @@ import lk.lalithk90.springbootthymelaf.kokis.dao.MixtureDao;
 import lk.lalithk90.springbootthymelaf.kokis.entity.Mixture;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MixtureService {
     private final MixtureDao mixtureDao;
@@ -12,14 +14,24 @@ public class MixtureService {
         this.mixtureDao = mixtureDao;
     }
 
-    //1. create
-    public void create(Mixture mixture) {
+    //1. create //3. update
+    public void persist(Mixture mixture) {
         //mixture type entity
         mixtureDao.save(mixture);
     }
 
     //2. read
-    //3. update
-    //4. Delete
+    public Mixture findById(int id) {
+        return mixtureDao.getOne(id);
+    }
 
+    //4. Delete
+    public void delete(int id) {
+        mixtureDao.deleteById(id);
+    }
+
+
+    public List<Mixture> findAll() {
+        return mixtureDao.findAll();
+    }
 }

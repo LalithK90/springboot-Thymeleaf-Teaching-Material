@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--/* Styles, meta data, and title are included */-->
+<head data-th-replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<!--/* Nav bar is included */-->
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+
+<!--<h1><span data-th-text="${mixture}"></span></h1>-->
+
+<div class="container">
+    <div class="form-row">
+        <label class="font-weight-bold h4 mr-5" data-th-for="${'flour'}">Flour</label>
+        <p class="font-weight-bold font-italic h4" data-th-text="${mixture.flour}"></p>
+    </div>
+    <div class="form-row">
+        <label class="font-weight-bold h4 mr-5" data-th-for="${'coconutMilk'}">Coconut Milk</label>
+        <p class="font-weight-bold font-italic h4" data-th-text="${mixture.coconutMilk}"></p>
+    </div>
+    <div class="form-row">
+        <label class="font-weight-bold h4 mr-5" data-th-for="${'salt'}">Salt</label>
+        <p class="font-weight-bold font-italic h4" data-th-text="${mixture.salt}"></p>
+    </div>
+    <div class="form-row">
+        <label class="font-weight-bold h4 mr-5" data-th-for="${'egg'}">Egg</label>
+        <p class="font-weight-bold font-italic h4" data-th-text="${mixture.egg}">
+        </p>
+    </div>
+    <div class="form-row">
+        <label class="font-weight-bold h4 mr-5" data-th-for="${'sugar'}">Sugar</label>
+        <p class="font-weight-bold font-italic h4" data-th-text="${mixture.sugar}"></p>
+    </div>
+    <button class="btn btn-warning">Reset</button>
+
+</div>
+<!--/* footer is */-->
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<!--/* script is included */-->
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+</body>
+</html>
