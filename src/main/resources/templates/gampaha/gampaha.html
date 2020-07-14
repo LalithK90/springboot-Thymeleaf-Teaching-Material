@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p data-th-text="${name}"></p>
+<p th:text="${name}"></p>
+
+<div>
+    <a data-th-href="${'/gampaha/add'}"><button type="button">Add</button></a>
+
+</div>
+
+<table>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Nic</th>
+        <th>Modify</th>
+    </tr>
+    <tr data-th-each="gampaha, index : ${gampahas}">
+        <td data-th-text="${index.count}"></td>
+        <td data-th-text="${gampaha.name}"></td>
+        <td data-th-text="${gampaha.age}"></td>
+        <td>
+            <a data-th-href="${'/gampaha/delete/'+ gampaha.id}">
+                <button type="button">Delete</button>
+            </a>
+            <a data-th-href="${'/gampaha/update/'+ gampaha.id}">
+                <button type="button">Edit</button>
+            </a>
+            <a data-th-href="${'/gampaha/findById/'+ gampaha.id}">
+                <button type="button">View</button>
+            </a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
