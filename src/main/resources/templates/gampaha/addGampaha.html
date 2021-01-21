@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Gampaha</title>
+</head>
+<body>
+<form action="/gampaha/save" data-th-object="${gampaha}" method="post">
+    <!--<input data-th-value="${id}" name="id" type="hidden">-->
+    <div>
+        <label>Name:
+            <input data-th-field="*{name}" type="text">
+        </label>
+    </div>
+    <div>
+        <label>Nic:
+            <input data-th-field="*{age}"  type="text">
+        </label>
+    </div>
+    <div>
+        <button type="reset">Clean</button>
+        <button type="submit">Save</button>
+    </div>
+</form>
+
+<script>
+    let name = document.getElementById("nic").value;
+    let name = $("#name").val();
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--/* Styles, meta data, and title are included */-->
+<head data-th-replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<!--/* Nav bar is included */-->
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+
+<h1><span data-th-text="${addStatus?'Update Mixture':'Add Mixture'}"></span></h1>
+
+<div class="container">
+    <form action="/kokis" data-th-object="${mixture}" method="post">
+        <input type="text"data-th-field="*{id}" data-th-if="${addStatus}" hidden readonly>
+        <div class="form-group">
+            <label data-th-for="${'flour'}">Flour</label>
+            <input aria-describedby="flourId" class="form-control" data-th-field="*{flour}" placeholder="Enter Name"
+                   type="text">
+            <small class="form-text text-muted" id="flourId">Please enter flour name</small>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${'coconutMilk'}">Coconut Milk</label>
+            <input aria-describedby="coconutMilkId" class="form-control" data-th-field="*{coconutMilk}"
+                   placeholder="Enter Name"
+                   type="text">
+            <small class="form-text text-muted" id="coconutMilkId">Please enter flour name</small>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${'salt'}">Salt</label>
+            <input aria-describedby="saltId" class="form-control" data-th-field="*{salt}" placeholder="Enter Name"
+                   required type="text">
+            <small class="form-text text-muted" id="saltId">Please enter flour name</small>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${'egg'}">Egg</label>
+            <input aria-describedby="eggId" autocomplete="off" class="form-control" data-th-field="*{egg}"
+                   placeholder="Enter Name" type="text">
+            <p class="text-danger" data-th-errors="*{egg}" data-th-if="${#fields.hasErrors('egg')}">Error Name</p>
+            <small class="form-text text-muted" id="eggId">Please enter flour name</small>
+        </div>
+        <div class="form-group">
+            <label data-th-for="${'sugar'}">Sugar</label>
+            <input aria-describedby="sugarId" class="form-control" data-th-field="*{sugar}"
+                   placeholder="Enter Name"
+                   type="text">
+            <small class="form-text text-muted" id="sugarId">Please enter flour name</small>
+        </div>
+        <button class="btn btn-warning" type="reset">Reset</button>
+        <button class="btn btn-success" type="submit"><span data-th-text="${addStatus?'Update':'Save'}"></span></button>
+
+    </form>
+</div>
+<!--/* footer is */-->
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<!--/* script is included */-->
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+</body>
+</html>

@@ -65,7 +65,7 @@ create database name with spring_thymeleaf
 
             //->{ 23 }. Spring security - add and validation.
             //->{ 24 }. Create report using itext - pdf.
-            //->{ 25 }. google report and chart.js.
+            //->{ 25 }. google report or chart.js.
             //->{ 26 }. google - email.
             //->{ 27 }. twilio - message.
             //->{ 28 }. build out put jar file.

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--/* Styles, meta data, and title are included */-->
+<head data-th-replace="~{fragments/header :: headerFragment}">
+    <meta charset="UTF-8">
+    <title>Thymeleaf Springboot </title>
+</head>
+<body>
+<!--/* Nav bar is included */-->
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}"></nav>
+<h1> All Mixture</h1>
+<div class="container-fluid">
+    <table class="table table-bordered table-striped" id="myTable">
+        <thead>
+        <tr>
+            <td>Index</td>
+            <td>Flour</td>
+            <td>Coconut Milk</td>
+            <td>Salt</td>
+            <td>Egg</td>
+            <td>Sugar</td>
+            <td>Modify</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="mixture, cde : ${mixtures}">
+            <td data-th-text="${cde.count}"></td>
+            <td data-th-text="${mixture.flour}"></td>
+            <td data-th-text="${mixture.coconutMilk}"></td>
+            <td data-th-text="${mixture.salt}"></td>
+            <td data-th-text="${mixture.egg}"></td>
+            <td data-th-text="${mixture.sugar}"></td>
+            <td>
+                <a data-th-href="${'/kokis/view/'+mixture.id}"><button class="btn btn-success">View</button></a>
+                <a data-th-href="${'/kokis/'+mixture.id}"><button class="btn btn-outline-primary">Edit</button></a>
+                <a data-th-href="${'/kokis/delete/'+mixture.id}"><button class="btn btn-danger">Delete</button></a>
+                <!--View  /kokis/view/{id}-->
+                <!--Edit  /kokis/{id} -->
+                <!--Delete   /kokis/delete/{id}-->
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- /.trable --></div>
+<!-- /.container-fluid -->
+
+<!--/* footer is */-->
+<footer data-th-replace="~{fragments/footer :: footerFragment}"></footer>
+<!--/* script is included */-->
+<script data-th-replace="~{fragments/script :: scriptFragment}"></script>
+</body>
+</html>

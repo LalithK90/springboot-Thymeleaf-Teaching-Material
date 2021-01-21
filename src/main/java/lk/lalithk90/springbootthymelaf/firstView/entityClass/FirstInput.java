@@ -7,4 +7,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class FirstInput {
     private String name;
+
 }

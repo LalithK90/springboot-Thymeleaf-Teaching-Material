@@ -55,7 +55,7 @@ public class EmployeeController {
 
     //save and update employee
     @PostMapping( value = {"/add", "/update"} )
-    private String persist(@Valid @ModelAttribute( "employee" ) Employee employee, BindingResult result, Model model,
+    public String persist(@Valid @ModelAttribute( "employee" ) Employee employee, BindingResult result,Model model,
                            RedirectAttributes redirectAttributes) {
         /*        @Valid
         ====================================
