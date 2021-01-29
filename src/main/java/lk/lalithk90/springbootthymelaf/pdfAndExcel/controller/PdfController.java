@@ -45,7 +45,7 @@ public class PdfController {
 
         if ( isFlag ) {
             String fullPath = request.getServletContext().getRealPath("/resources/report/" + "employees" + ".pdf");
-            fileHandelService.filedownload(fullPath, response, "employees.pdf");
+            fileHandelService.fileDownload(fullPath, response, "employees.pdf");
         }
 
     }
@@ -56,7 +56,7 @@ public class PdfController {
         boolean isFlag = employeeService.createExcell(employees, context, request, response);
         if ( isFlag ) {
             String fullPath = request.getServletContext().getRealPath("/resources/report/" + "employees" + ".xls");
-            fileHandelService.filedownload(fullPath, response, "employees.xls");
+            fileHandelService.fileDownload(fullPath, response, "employees.xls");
 
         }
 

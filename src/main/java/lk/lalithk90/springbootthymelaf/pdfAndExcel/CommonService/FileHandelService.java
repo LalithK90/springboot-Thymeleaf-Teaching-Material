@@ -18,7 +18,7 @@ public class FileHandelService {
         this.context = context;
     }
 
-    public void filedownload(String fullPath, HttpServletResponse response, String files) {
+    public void fileDownload(String fullPath, HttpServletResponse response, String files) {
         File file = new File(fullPath);
         final int BUFFER_SIZE = 4096;
         if (file.exists()){
@@ -26,7 +26,7 @@ public class FileHandelService {
                 FileInputStream inputStream = new FileInputStream(file);
                 String mimeType = context.getMimeType(fullPath);
                 response.setContentType(mimeType);
-                response.setHeader("content-disposition:inline; ", "filename="+ files);
+                response.setHeader("content-disposition","inline; filename="+ files);
                 OutputStream outputStream = response.getOutputStream();
                 byte[] buffer = new byte[BUFFER_SIZE];
                 int bytestRead = -1;
