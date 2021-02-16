@@ -4,10 +4,16 @@ package lk.lalithk90.springboot_thymelaf.pdfAndExcel.controller;
 import lk.lalithk90.springboot_thymelaf.employeeCrud.service.GenderService;
 import lk.lalithk90.springboot_thymelaf.pdfAndExcel.entity.EmployeePdfAndExcel;
 import lk.lalithk90.springboot_thymelaf.pdfAndExcel.service.EmployeePdfAndExcelService;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

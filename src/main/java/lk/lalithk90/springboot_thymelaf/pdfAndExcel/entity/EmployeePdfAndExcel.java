@@ -4,6 +4,8 @@ import lk.lalithk90.springboot_thymelaf.employeeCrud.entity.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
@@ -11,12 +13,16 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class EmployeePdfAndExcel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name, email, mobile,address;
+
+    @Transient
+    private MultipartFile multipartFile;
 
     @ManyToOne
     private Gender gender;
