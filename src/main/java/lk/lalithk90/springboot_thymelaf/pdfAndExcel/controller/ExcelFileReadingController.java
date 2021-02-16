@@ -5,6 +5,7 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,14 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/excelFileReading")
 public class ExcelFileReadingController {
-  @PostMapping( "/cidcrdsis" )
+
+  @GetMapping
+  public String form(){
+
+    return "pdfFileReading/pdfFileReading";
+  }
+
+  @PostMapping(  )
   public String saveResult(@ModelAttribute EmployeePdfAndExcel employeePdfAndExcel) throws IOException {
     //todo 1. need to find applicant using nic
 

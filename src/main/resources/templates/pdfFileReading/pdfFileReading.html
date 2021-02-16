@@ -12,8 +12,7 @@
 </head >
 <body >
 <div class="container">
-  <form data-th-action="${'/interviewManage/'+formAction}" method="post" enctype="multipart/form-data" >
-    <input type="hidden" name="internalDivision" data-th-value="${internalDivisionSIS}" required/>
+  <form data-th-action="${'/excelFileReading'}" method="post" enctype="multipart/form-data" >
     <label > Please Select Result Enter File :
       <input type="file" name="multipartFile" accept=".csv, .xls, .xlsx, text/csv, application/csv,
 text/comma-separated-values, application/csv, application/excel,
