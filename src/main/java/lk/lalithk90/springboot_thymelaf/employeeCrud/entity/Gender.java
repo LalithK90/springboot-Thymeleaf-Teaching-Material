@@ -25,4 +25,9 @@ public class Gender {
 
     @OneToMany(mappedBy = "gender")
     private List<Employee> employees;
+
+    public Gender(@NotNull( message = "Pay roll number is required" ) String name) {
+        this.name = name;
+    }
+
 }

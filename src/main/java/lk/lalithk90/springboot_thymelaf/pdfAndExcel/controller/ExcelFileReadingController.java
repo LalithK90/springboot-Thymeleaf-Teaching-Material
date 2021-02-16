@@ -1,5 +1,6 @@
 package lk.lalithk90.springboot_thymelaf.pdfAndExcel.controller;
 
+import lk.lalithk90.springboot_thymelaf.employeeCrud.entity.Gender;
 import lk.lalithk90.springboot_thymelaf.pdfAndExcel.entity.EmployeePdfAndExcel;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -40,17 +41,17 @@ public class ExcelFileReadingController {
       //Creates an object representing a single row in excel
       HSSFRow row = worksheet.getRow(i++);
       //Sets the Read data to the model class
-/*      candidate.setCandidateId((int) row.getCell(0).getNumericCellValue());
-      candidate.setName(row.getCell(1).getStringCellValue());
-      candidate.setAddress(row.getCell(2).getStringCellValue());
-      candidate.setEmailId(row.getCell(3).getStringCellValue());
-      candidate.setPinCode((int) row.getCell(4).getNumericCellValue());
-      candidate.setAboutCandidate(row.getCell(5).getStringCellValue());
-      */
+      employeePdfAndExcelOne.setName(row.getCell(0).getStringCellValue());
+      employeePdfAndExcelOne.setEmail(row.getCell(1).getStringCellValue());
+      employeePdfAndExcelOne.setMobile(row.getCell(2).getStringCellValue());
+      employeePdfAndExcelOne.setAddress(row.getCell(3).getStringCellValue());
+   //   employeePdfAndExcelOne.setGender(new Gender(row.getCell(4).getStringCellValue()));
+      //employeePdfAndExcelOne.setGender(row.getCell(4).getNumericCellValue());
+
       //Sends the model object to service layer for validation,
       //data processing and then to persist
-      //iCandidateService.saveCandidate(candidate);
+ System.out.println(employeePdfAndExcelOne.toString());
     }
-    return "redirect:/interviewManage/cidcrdsis";
+    return "redirect:/interviewManage";
   }
 }

@@ -186,16 +186,19 @@ public class EmployeePdfAndExcelService {
       HSSFRow headerRow = workSheet.createRow(0);
 
       HSSFCell name = headerRow.createCell(0);
-      name.setCellValue("employee.getName()");
+      name.setCellValue("Employee Name");
       name.setCellStyle(headerCellStyle);
 
       HSSFCell email = headerRow.createCell(1);
+      email.setCellValue("Email");
       email.setCellStyle(headerCellStyle);
 
       HSSFCell mobile = headerRow.createCell(2);
+      mobile.setCellValue("Land Phone Number");
       mobile.setCellStyle(headerCellStyle);
 
       HSSFCell address = headerRow.createCell(3);
+      address.setCellValue("Address");
       address.setCellStyle(headerCellStyle);
 
       Integer i = 1;
