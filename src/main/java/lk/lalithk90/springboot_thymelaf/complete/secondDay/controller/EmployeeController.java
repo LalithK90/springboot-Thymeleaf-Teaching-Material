@@ -1,6 +1,7 @@
 package lk.lalithk90.springboot_thymelaf.complete.secondDay.controller;
 
-import com.example_spring.complete.secondDay.object.Employee;
+
+import lk.lalithk90.springboot_thymelaf.complete.secondDay.object.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ public class EmployeeController {
     return "secondDay/employee";
   }
 
-  List<Employee> employeeDb = new ArrayList<>();//[{},{},{}]
+  List< Employee > employeeDb = new ArrayList<>();//[{},{},{}]
 
   @PostMapping( value = {"/employee"} )
   public String employeeCheck(@ModelAttribute Employee employee) {

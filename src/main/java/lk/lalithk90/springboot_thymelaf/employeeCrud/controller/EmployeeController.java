@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping( "/employee" )
+@RequestMapping( "/employeeCrud" )
 public class EmployeeController {
     private final EmployeeService employeeService;
     private final DesignationService designationService;

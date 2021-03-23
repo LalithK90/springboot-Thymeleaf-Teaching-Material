@@ -1,27 +1,27 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<body>
-<div th:fragment="scriptFragment">
+<html lang="en" >
+<body >
+<div data-th-fragment="scriptFragment" >
 
     <!-- jQuery library -->
-    <script th:src="@{/webjars/jquery/3.4.1/jquery.js}"></script>
+    <script data-th-src="@{/webjars/jquery/3.4.1/jquery.js}" ></script >
     <!-- jQuery ui -->
-    <script th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+    <script data-th-src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}" ></script >
     <!-- Latest compiled JavaScript for bootstrap-->
-    <script th:src="@{/webjars/popper.js/1.15.0/popper.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+    <script data-th-src="@{/webjars/popper.js/1.15.0/popper.min.js}" ></script >
+    <script data-th-src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}" ></script >
 
-<!--    &lt;!&ndash; data table &ndash;&gt;
-    <script th:src="@{/js/pagination.js}"></script>
-    &lt;!&ndash; fontawesome js &ndash;&gt;
-    <script th:src="@{/webjars/font-awesome/5.11.2/js/all.min.js}"></script>
-    &lt;!&ndash;custom javascript&ndash;&gt;
-    <script th:src="@{/js/myJs.js}"></script>
-    &lt;!&ndash;image - uploader javascript&ndash;&gt;
-    <script th:src="@{/js/image-uploader.min.js}"></script>-->
+    <!--    &lt;!&ndash; data table &ndash;&gt;
+        <script  data-th-src="@{/js/pagination.js}"></script>
+        &lt;!&ndash; fontawesome js &ndash;&gt;
+        <script  data-th-src="@{/webjars/font-awesome/5.11.2/js/all.min.js}"></script>
+        &lt;!&ndash;custom javascript&ndash;&gt;
+        <script  data-th-src="@{/js/myJs.js}"></script>
+        &lt;!&ndash;image - uploader javascript&ndash;&gt;
+        <script  data-th-src="@{/js/image-uploader.min.js}"></script>-->
 
     <!--To modify the alert-->
-    <script th:src="@{/js/sweetalert.js}"></script>
+    <script data-th-src="@{/js/sweetalert.js}" ></script >
     <!--notification count get url-->
   <!--  <script>
         $(document).ready(function () {

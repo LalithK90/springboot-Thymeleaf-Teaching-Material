@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
-    <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
-</head>
-<body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
-<div class="container-fluid">
-    <div class="container">
-        <div class="jumbotron">
-            <div class="h1">Hey ..</div>
-            <div class="offset-2">
+<html lang="en" >
+<head data-th-replace="~{fragments/header :: headerFragment}" >
+    <meta charset="UTF-8" >
+    <title >Thymeleaf Springboot </title >
+</head >
+<body >
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
+<div class="container-fluid" >
+    <div class="container" >
+        <div class="jumbotron" >
+            <div class="h1" >Hey ..</div >
+            <div class="offset-2" >
                 <h3 class="text-info text-center textLayer-shadow">Welcome to Spring boot With Thymeleaf</h3>
                 <h2>Enum Value View</h2>
                 <div class="container">
                     <!--from content start-->
-                    <form th:action="@{/form}" method="post" th:object="${form}"
-                          class="was-validated">
-                        <div class="row">
+                    <form data-th-action="@{/form}" method="post" data-th-object="${form}"
+                          class="was-validated" >
+                        <div class="row" >
                             <!--Simple text filed-->
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="simpleText">Simple Text Filed</label>
+                            <div class="col" >
+                                <div class="form-group" >
+                                    <label for="simpleText" >Simple Text Filed</label >
                                     <input type="text" name="simpleText" id="simpleText" class="form-control"
                                            placeholder="Enter Name Here"
-                                           aria-describedby="simpleTextId" required>
-                                    <small id="simpleTextId" class="text-muted">Simple Text Filed</small>
+                                           aria-describedby="simpleTextId" required >
+                                    <small id="simpleTextId" class="text-muted" >Simple Text Filed</small >
                                     <p class="text-danger"> Name is required</p>
-                                    <!-- <p class="text-danger" th:if="${#fields.hasErrors('simpleText')}"
-                                        th:errors="*{simpleText}">Error
+                                    <!-- <p class="text-danger"  data-th-if="${#fields.hasErrors('simpleText')}"
+                                         data-th-errors="*{simpleText}">Error
                                                                                                                Name</p>-->
                                 </div>
                             </div>
@@ -91,24 +91,25 @@
                             <!--Multi Check box-->
                             <div class="col">
                                 <div class="custom-control custom-checkbox"
-                                     th:each="multiValueCheckBoxe : ${multiValueCheckBoxes}">
+                                     data-th-each="multiValueCheckBoxe : ${multiValueCheckBoxes}" >
                                     <input type="checkbox" class="custom-control-input"
-                                           th:field="*{multiValueCheckBoxList}"
-                                           data-th-value="${multiValueCheckBoxe.id}">
-                                    <label class="custom-control-label" th:for="${#ids.prev('multiValueCheckBoxList')}"
-                                           th:text="${multiValueCheckBoxe.name}"> Multi Value Check One
-                                    </label>
-                                </div>
+                                           data-th-field="*{multiValueCheckBoxList}"
+                                           data-th-value="${multiValueCheckBoxe.id}" >
+                                    <label class="custom-control-label"
+                                           data-th-for="${#ids.prev('multiValueCheckBoxList')}"
+                                           data-th-text="${multiValueCheckBoxe.name}" > Multi Value Check One
+                                    </label >
+                                </div >
                             </div>
                             <!--Radio button-->
                             <div class="col">
-                                <div class="custom-control custom-radio" th:each="radioButton : ${radioButtons}">
+                                <div class="custom-control custom-radio" data-th-each="radioButton : ${radioButtons}" >
                                     <input type="radio" class="custom-control-input"
-                                           th:value="${radioButton.id}" th:field="*{radioButton}"/>
-                                    <label class="custom-control-label" th:for="${#ids.prev('radioButton')}"
-                                           th:text="${radioButton.name}"> radio
-                                    </label>
-                                </div>
+                                           data-th-value="${radioButton.id}" data-th-field="*{radioButton}" />
+                                    <label class="custom-control-label" data-th-for="${#ids.prev('radioButton')}"
+                                           data-th-text="${radioButton.name}" > radio
+                                    </label >
+                                </div >
                             </div>
                         </div>
 
@@ -117,40 +118,41 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="dropDownList">Drop Down Single </label>
-                                    <select class="form-control" th:field="*{dropDownList}" id="dropDownList">
-                                        <option value="" disabled> Please Select</option>
-                                        <option th:each="dropDown : ${dropDowns}" th:value="${dropDown.id}"
-                                                th:text="${dropDown.name}"></option>
-                                    </select>
+                                    <select class="form-control" data-th-field="*{dropDownList}" id="dropDownList" >
+                                        <option value="" disabled > Please Select</option >
+                                        <option data-th-each="dropDown : ${dropDowns}" data-th-value="${dropDown.id}"
+                                                data-th-text="${dropDown.name}" ></option >
+                                    </select >
                                 </div>
                             </div>
                             <!--Drop down multi-->
                             <div class="col">
                                 <div class="form-group">
                                     <label for="dropDownList1">Drop Down Single </label>
-                                    <select class="form-control" th:field="*{dropDownList}" id="dropDownList1" multiple>
-                                        <option value="" disabled> Please Select</option>
-                                        <option th:each="dropDown : ${dropDowns}" th:value="${dropDown.id}"
-                                                th:text="${dropDown.name}"></option>
-                                    </select>
+                                    <select class="form-control" data-th-field="*{dropDownList}" id="dropDownList1"
+                                            multiple >
+                                        <option value="" disabled > Please Select</option >
+                                        <option data-th-each="dropDown : ${dropDowns}" data-th-value="${dropDown.id}"
+                                                data-th-text="${dropDown.name}" ></option >
+                                    </select >
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col align-content-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-<script th:replace="~{fragments/footer :: footerFragment}"></script>
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
-<script type="text/javascript">
+                                <button type="submit" class="btn btn-primary" >Submit</button >
+                            </div >
+                        </div >
+                    </form >
+                </div >
+            </div >
+        </div >
+    </div >
+</div >
+</body >
+<div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
+<div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
+<script type="text/javascript" >
     /*    (function() {
             'use strict';
             window.addEventListener('load', function() {

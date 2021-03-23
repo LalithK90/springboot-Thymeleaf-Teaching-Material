@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
-    <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
-</head>
-<body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
-<div class="container">
-    <div class="jumbotron"></div>
-</div>
-<div class="container-fluid mt-2">
-    <h1>Form element show - start</h1>
+<html lang="en" >
+<head data-th-replace="~{fragments/header :: headerFragment}" >
+    <meta charset="UTF-8" >
+    <title >Thymeleaf Springboot </title >
+</head >
+<body >
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
+<div class="container" >
+    <div class="jumbotron" ></div >
+</div >
+<div class="container-fluid mt-2" >
+    <h1 >Form element show - start</h1 >
     <div class="flex-column">
 
         <div class="col bg-success">
             <h1>Radio box</h1>
 
-            <form action="" class="form" th:object="${something}">
-                <ul>
-                    <li th:each="simple : ${simples}">
-                        <input class="form-control" th:field="*{simple}" th:value="${simple}" type="radio"/>
+            <form action="" class="form" data-th-object="${something}" >
+                <ul >
+                    <li data-th-each="simple : ${simples}" >
+                        <input class="form-control" data-th-field="*{simple}" data-th-value="${simple}" type="radio" />
                         <label class="label"
-                               th:for="${#ids.prev('simple')}"
-                               th:text="${simple.simple}"></label>
-                    </li>
-                </ul>
-                <p>This is the code i used </p>
-                <pre>
+                               data-th-for="${#ids.prev('simple')}"
+                               data-th-text="${simple.simple}" ></label >
+                    </li >
+                </ul >
+                <p >This is the code i used </p >
+                <pre >
                 &lt;ul&gt;
-                    &lt;li th:each="simple : ${simples}"&gt;
-                        &lt;input type="radio" th:value="${simple}" th:field="*{simple}"/&gt;
-                        &lt;label th:for="${#ids.prev('simple')}" th:text="${simple.simple}"&gt;&lt;/label&gt;
+                    &lt;li  data-th-each="simple : ${simples}"&gt;
+                        &lt;input type="radio"  data-th-value="${simple}"  data-th-field="*{simple}"/&gt;
+                        &lt;label  data-th-for="${#ids.prev('simple')}"  data-th-text="${simple.simple}"&gt;&lt;/label&gt;
                     &lt;/li&gt;
                 &lt;/ul&gt;
             </pre>
@@ -43,35 +43,35 @@
         <hr>
 
 
-        <div class="col bg-dark text-light">
-            <h1>Drop down </h1>
+        <div class="col bg-dark text-light" >
+            <h1 >Drop down </h1 >
 
-            <form action="" class="form" th:object="${something}">
-                <select th:field="*{simple}">
-                    <option value=""> Please Select</option>
+            <form action="" class="form" data-th-object="${something}" >
+                <select data-th-field="*{simple}" >
+                    <option value="" > Please Select</option >
                     <option
-                            th:each="simple: ${simples}"
-                            th:filed="*{simple}"
-                            th:text="${simple.simple}"
-                            th:value="${simple}"></option>
-                </select>
+                          data-th-each="simple: ${simples}"
+                          th:filed="*{simple}"
+                          data-th-text="${simple.simple}"
+                          data-th-value="${simple}" ></option >
+                </select >
                 <!--Special Note
   if you need to select which list come from backend
                                         |           | pre defined method thymeleaf library
                                         ^           ^
-                th:selected="${selectedTagList.contains(atag.id)}"
+                 data-th-selected="${selectedTagList.contains(atag.id)}"
                                                             ^
                                                             | relevant part id                 -->
 
                 <p>This is the code i used </p>
                 <pre class="text-light">
-                &lt;select th:field="*{simple}"&gt;
+                &lt;select  data-th-field="*{simple}"&gt;
                     &lt;option value=""&gt; Please Select&lt;/option&gt;
                     &lt;option
-                        th:each="simple: ${simples}"
-                        th:value="${simple}"
+                         data-th-each="simple: ${simples}"
+                         data-th-value="${simple}"
                         th:filed="*{simple}"
-                        th:text="${simple.simple}"&gt;
+                         data-th-text="${simple.simple}"&gt;
                     &lt;/option&gt;
                 &lt;/select&gt;
             </pre>
@@ -86,18 +86,19 @@
         <div class="col bg-warning">
             <h1>Check box</h1>
 
-            <form action="" class="form" th:object="${something}">
-                <div>
-                    <label class="label" th:for="oneValue" th:text="'One Value is Selected:'"></label>
-                    <input class="form-control" th:field="*{oneValue}" th:value="${oneValue}" type="checkbox"/>
-                </div>
+            <form action="" class="form" data-th-object="${something}" >
+                <div >
+                    <label class="label" th:for="oneValue" data-th-text="'One Value is Selected:'" ></label >
+                    <input class="form-control" data-th-field="*{oneValue}" data-th-value="${oneValue}"
+                           type="checkbox" />
+                </div >
 
                 when used like not need to id to identify label and name
-                <p>This is the code i used </p>
-                <pre>
+                <p >This is the code i used </p >
+                <pre >
                 &lt;div&gt;
-                    &lt;label th:for="oneValue" th:text="'One Value is Selected:'"&gt;&lt;/label&gt;
-                    &lt;input type="checkbox" th:value="${oneValue}" th:field="*{oneValue}"/&gt;
+                    &lt;label th:for="oneValue"  data-th-text="'One Value is Selected:'"&gt;&lt;/label&gt;
+                    &lt;input type="checkbox"  data-th-value="${oneValue}"  data-th-field="*{oneValue}"/&gt;
                 &lt;/div&gt;
             </pre>
                 <p>Code explanation</p>
@@ -111,37 +112,37 @@
         <div class="col-xs-1-12 bg-secondary">
             <h1>Multiple Check box</h1>
 
-            <form action="" class="form" th:object="${something}">
-                <ul>
-                    <li th:each="simple: ${simples}">
-                        <input class="form-check-input" th:field="*{simple}"
-                               th:value="${simple.simple}"
-                               type="checkbox"/>
+            <form action="" class="form" data-th-object="${something}" >
+                <ul >
+                    <li data-th-each="simple: ${simples}" >
+                        <input class="form-check-input" data-th-field="*{simple}"
+                               data-th-value="${simple.simple}"
+                               type="checkbox" />
                         <label class="form-check-label"
-                               th:for="${#ids.prev('simple')}"
-                               th:text="${simple.simple }"></label>
-                    </li>
-                </ul>
+                               data-th-for="${#ids.prev('simple')}"
+                               data-th-text="${simple.simple }" ></label >
+                    </li >
+                </ul >
 
                 <p>This is the code i used </p>
                 <pre>
                     &lt;ul&gt;
-                        &lt;li th:each="simple: ${simples}"&gt;
-                            &lt;input type="checkbox" th:field="*{simple}" th:value="${simple.simple}"/&gt;
-                            &lt;label th:for="${#ids.prev('simple')}" th:text="${simple.simple }"&gt;&lt;/label&gt;
+                        &lt;li  data-th-each="simple: ${simples}"&gt;
+                            &lt;input type="checkbox"  data-th-field="*{simple}"  data-th-value="${simple.simple}"/&gt;
+                            &lt;label  data-th-for="${#ids.prev('simple')}"  data-th-text="${simple.simple }"&gt;&lt;/label&gt;
                         &lt;/li&gt;
                     &lt;/ul&gt;
-                </pre>
-                <p>Code explanation</p>
-                <pre>
+                </pre >
+                <p >Code explanation</p >
+                <pre >
 
-              </pre>
-            </form>
-        </div>
-    </div>
-</div>
+              </pre >
+            </form >
+        </div >
+    </div >
+</div >
 
-<script th:replace="~{fragments/footer :: footerFragment}"></script>
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
-</body>
+<div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
+<div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
+</body >
 </html>

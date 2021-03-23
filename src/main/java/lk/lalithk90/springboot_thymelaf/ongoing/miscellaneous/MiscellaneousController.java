@@ -1,8 +1,8 @@
 package lk.lalithk90.springboot_thymelaf.ongoing.miscellaneous;
 
 
-import com.example_spring.complete.thirdDay.entity.EmployeeOne;
-import com.example_spring.complete.thirdDay.service.EmployeeOneService;
+import lk.lalithk90.springboot_thymelaf.complete.thirdDay.entity.EmployeeOne;
+import lk.lalithk90.springboot_thymelaf.complete.thirdDay.service.EmployeeOneService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

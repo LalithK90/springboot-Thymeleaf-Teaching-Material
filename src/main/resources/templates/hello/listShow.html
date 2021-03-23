@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: headerFragment}">
-    <meta charset="UTF-8">
-    <title>Thymeleaf Springboot </title>
-</head>
-<body>
-<nav th:replace="~{fragments/navBar :: navBarFragment}"></nav>
-<style>
+<html lang="en" >
+<head data-th-replace="~{fragments/header :: headerFragment}" >
+  <meta charset="UTF-8" >
+  <title >Thymeleaf Springboot </title >
+</head >
+<body >
+<nav data-th-replace="~{fragments/navBar :: navBarFragment}" ></nav >
+<style >
     table {
         border-collapse: collapse;
         border: 1px solid black;
@@ -30,27 +30,27 @@
                 <th class="text-left">Object 2</th>
             </tr>
             </thead>
-            <tbody>
-            <tr th:each="simple, rowCount : ${sampleList}">
-                <th th:text="${rowCount.count}"></th>
-                <th th:text="${simple.id}"></th>
-                <th th:text="${simple.name}"></th>
-                <th th:text="${simple.mobileNo}"></th>
-                <th th:text="${simple.address}"></th>
-                <th>
-                    <ol th:each="simple2: ${simple.simple02s}">
-                        <li th:text="${simple2.id}"></li>
-                        <li th:text="${simple2.name}"></li>
-                        <li th:text="${simple2.mobileNo}"></li>
-                    </ol>
-                </th>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+          <tbody >
+          <tr data-th-each="simple, rowCount : ${sampleList}" >
+            <th data-th-text="${rowCount.count}" ></th >
+            <th data-th-text="${simple.id}" ></th >
+            <th data-th-text="${simple.name}" ></th >
+            <th data-th-text="${simple.mobileNo}" ></th >
+            <th data-th-text="${simple.address}" ></th >
+            <th >
+              <ol data-th-each="simple2: ${simple.simple02s}" >
+                <li data-th-text="${simple2.id}" ></li >
+                <li data-th-text="${simple2.name}" ></li >
+                <li data-th-text="${simple2.mobileNo}" ></li >
+              </ol >
+            </th >
+          </tr >
+          </tbody >
+        </table >
+    </div >
+</div >
 
-<script th:replace="~{fragments/footer :: footerFragment}"></script>
-<script th:replace="~{fragments/script :: scriptFragment}"></script>
-</body>
+<div data-th-replace="~{fragments/footer :: footerFragment}" ></div >
+<div data-th-replace="~{fragments/script :: scriptFragment}" ></div >
+</body >
 </html>
