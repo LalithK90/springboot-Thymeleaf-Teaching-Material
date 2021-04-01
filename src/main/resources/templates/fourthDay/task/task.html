@@ -16,7 +16,7 @@
   <div class="container-fluid text-center" >
     <div class="row" >
       <div class="col-4" >
-        <a href="/task/add" >
+        <a href="/task4/add" >
           <button type="button" class="btn btn-info" > New Task</button >
         </a >
       </div >
@@ -41,19 +41,19 @@
         </tr >
         </thead >
         <tbody >
-        <tr data-th-each="task, a : ${tasks}" >
+        <tr data-th-each="task4, a : ${tasks}" >
           <td data-th-text="${a.count}" ></td >
-          <td data-th-text="${task.name == null ? 'Ha ha': task.name}" ></td >
-          <td data-th-text="${task.behavior.behavior}" ></td >
+          <td data-th-text="${task4.name == null ? 'Ha ha': task4.name}" ></td >
+          <td data-th-text="${task4.behavior.behavior}" ></td >
           <td >
-            <a data-th-href="${'/task/edit/'+task.id}" >
-            <button class="btn btn-primary" type="button">Edit</button>
-          </a >
-            <a data-th-href="${'/task/view/'+task.id}" >
-              <button class="btn btn-warning" type="button">View</button>
+            <a data-th-href="${'/task4/edit/'+task4.id}" >
+              <button class="btn btn-primary" type="button" >Edit</button >
             </a >
-            <a data-th-href="${'/task/delete/'+task.id}" >
-              <button class="btn btn-danger" type="button">Delete</button>
+            <a data-th-href="${'/task4/view/'+task4.id}" >
+              <button class="btn btn-warning" type="button" >View</button >
+            </a >
+            <a data-th-href="${'/task4/delete/'+task4.id}" >
+              <button class="btn btn-danger" type="button" >Delete</button >
             </a >
           </td >
         </tr >

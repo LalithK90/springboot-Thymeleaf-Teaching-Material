@@ -2,7 +2,7 @@ package lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.service;
 
 
 import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.dao.Task4Dao;
-import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.entity.Task;
+import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.entity.Task4;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,19 +18,19 @@ public class Task4Service {
   }
 
 
-  public List< Task > findAll() {
+  public List< Task4 > findAll() {
     return task4Dao.findAll();
   }
 
 
-  public Task findById(Integer id) {
+  public Task4 findById(Integer id) {
     return task4Dao.getOne(id);
   }
 
 
-  public Task persist(Task task) {
+  public Task4 persist(Task4 task4) {
 
-    return task4Dao.save(task);
+    return task4Dao.save(task4);
   }
 
 

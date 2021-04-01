@@ -14,7 +14,7 @@
 <!--header-->
 <div class="container-fluid" >
   <div class="col-4" >
-    <a href="/person/add" >
+    <a href="/personFinal/add" >
       <button class="btn btn-info" type="button" >Add</button >
     </a >
   </div >
@@ -36,16 +36,17 @@
     </tr >
     </thead >
     <tbody >
-    <tr data-th-each="person, index : ${persons}" >
+    <tr data-th-each="personFinal, index : ${persons}" >
       <td data-th-text="${index.count}" ></td >
-      <td data-th-text="${person.name}" ></td >
-      <td data-th-text="${person.mobile}" ></td >
+      <td data-th-text="${personFinal.name}" ></td >
+      <td data-th-text="${personFinal.mobile}" ></td >
       <td >
         <a class="btn btn-primary"
-           data-th-href="${activeStatus==true?'/viva/edit/'+person.id :'/person/edit/'+person.id}" >Edit</a >
-        <a class="btn btn-danger" data-th-href="${'/person/delete/'+person.id}" >Delete</a >
-        <a data-th-if="${activeStatus}" class="btn btn-danger" data-th-href="${'/viva/active/'+person.id}" >Active</a >
-        <a class="btn btn-success" data-th-href="${'/person/view/'+person.id}" >View</a >
+           data-th-href="${activeStatus==true?'/viva/edit/'+personFinal.id :'/personFinal/edit/'+personFinal.id}" >Edit</a >
+        <a class="btn btn-danger" data-th-href="${'/personFinal/delete/'+personFinal.id}" >Delete</a >
+        <a data-th-if="${activeStatus}" class="btn btn-danger"
+           data-th-href="${'/viva/active/'+personFinal.id}" >Active</a >
+        <a class="btn btn-success" data-th-href="${'/personFinal/view/'+personFinal.id}" >View</a >
       </td >
     </tr >
     </tbody >

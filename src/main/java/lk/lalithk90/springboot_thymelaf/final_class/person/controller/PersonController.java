@@ -1,6 +1,6 @@
 package lk.lalithk90.springboot_thymelaf.final_class.person.controller;
 
-import lk.lalithk90.springboot_thymelaf.final_class.person.entity.Person;
+import lk.lalithk90.springboot_thymelaf.final_class.person.entity.PersonFinal;
 import lk.lalithk90.springboot_thymelaf.final_class.person.service.PersonService;
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonTask;
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.enums.PersonTaskStatus;
@@ -27,7 +27,7 @@ public class PersonController {
   }
 
 
-  // 1. all Person
+  // 1. all PersonFinal
   @GetMapping
   public String findAllPerson(Model model) {
     model.addAttribute("persons", personService.findAll());
@@ -38,29 +38,29 @@ public class PersonController {
 
   @GetMapping( "/add" )
   public String addFrom(Model model) {
-    return common(model, new Person(), false);
+    return common(model, new PersonFinal(), false);
   }
 
   // 3. save/update
   @PostMapping( "/save" )
-  public String persist(@ModelAttribute Person person) {
+  public String persist(@ModelAttribute PersonFinal personFinal) {
     List< PersonTask > personTaskList = new ArrayList<>();
 
-    for ( PersonTask personTask : person.getPersonTasks() ) {
-      personTask.setPerson(person);
+    for ( PersonTask personTask : personFinal.getPersonTasks() ) {
+      personTask.setPersonFinal(personFinal);
       personTaskList.add(personTask);
     }
-    person.setPersonTasks(personTaskList);
-    personService.persist(person);
+    personFinal.setPersonTasks(personTaskList);
+    personService.persist(personFinal);
     return "redirect:/person";
   }
 
-  private String common(Model model, Person person, boolean addStatus) {
-    model.addAttribute("person", person);
+  private String common(Model model, PersonFinal personFinal, boolean addStatus) {
+    model.addAttribute("person", personFinal);
     model.addAttribute("tasks", taskService.findAll());
     model.addAttribute("addStatus", addStatus);
     model.addAttribute("personTaskStatuses", PersonTaskStatus.values());
-    return "person/addPerson";
+    return "personFinal/addPerson";
   }
 
   // 4. edit

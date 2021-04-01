@@ -13,7 +13,7 @@ import java.util.List;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class Task {
+public class Task4 {
 
   @Id
   @GeneratedValue( strategy = GenerationType.IDENTITY )
@@ -21,7 +21,7 @@ public class Task {
 
   private String name;
 
-  @Enumerated( EnumType.STRING)
+  @Enumerated( EnumType.STRING )
   private Behavior behavior;
 
 }

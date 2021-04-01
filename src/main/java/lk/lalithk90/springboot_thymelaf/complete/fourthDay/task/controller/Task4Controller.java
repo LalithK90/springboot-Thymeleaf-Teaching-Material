@@ -2,7 +2,7 @@ package lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.controller;
 
 
 import lk.lalithk90.springboot_thymelaf.common_thing.enums.Behavior;
-import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.entity.Task;
+import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.entity.Task4;
 import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.service.Task4Service;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,15 +29,15 @@ public class Task4Controller {
 
   @GetMapping( "/add" )
   private String addForm(Model model) {
-     model.addAttribute("task",new Task());
-     model.addAttribute("behaviours", Behavior.values());
+    model.addAttribute("task", new Task4());
+    model.addAttribute("behaviours", Behavior.values());
     return "fourthDay/task/addTask";
   }
 
 
   @PostMapping
-  public String persist(@ModelAttribute Task task) {
-    task4Service.persist(task);
+  public String persist(@ModelAttribute Task4 task4) {
+    task4Service.persist(task4);
     return "redirect:/task";
   }
 

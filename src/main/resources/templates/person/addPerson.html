@@ -14,7 +14,7 @@
 <!--header-->
 <div class="container-fluid" >
   <div class="col-4" >
-    <a href="/person" >
+    <a href="/personFinal" >
       <button class="btn btn-info" type="button" >View List</button >
     </a >
   </div >
@@ -25,7 +25,7 @@
   </div >
 </div >
 <div class="container" >
-  <form action="/person/save" method="post" data-th-object="${person}" >
+  <form action="/personFinal/save" method="post" data-th-object="${personFinal}" >
     <!--id-->
     <div class="form-group" data-th-if="${addStatus==true}" >
       <label data-th-for="${'id'}" >Id</label >
@@ -42,14 +42,14 @@
       <label data-th-for="${'mobile'}" >Mobile</label >
       <input type="text" class="form-control" data-th-field="*{mobile}" minlength="9" maxlength="10" placeholder="" >
     </div >
-    <!--task list -->
+    <!--task4 list -->
     <div class="form-group" >
       <label data-th-for="${'tasks'}" >Task</label >
       <select id="tasks" class="form-control" >
         <option value="" >Please select</option >
-        <option data-th-each="task : ${tasks}"
-                data-th-value="${task.id}"
-                data-th-text="${task.name}" ></option >
+        <option data-th-each="task4 : ${tasks}"
+                data-th-value="${task4.id}"
+                data-th-text="${task4.name}" ></option >
       </select >
     </div >
     <div class="form-group" >
@@ -67,23 +67,23 @@
           </tr >
           </thead >
           <tbody >
-          <tr data-th-each="personTask, index : ${person.personTasks}" >
+          <tr data-th-each="personTask, index : ${personFinal.personTasks}" >
             <td >
-              <input class="form-control" type="text" data-th-name="${'personTasks[__${index.index}__].task.name'}"
-                     data-th-value="${person.personTasks[__${index.index}__].task.name}" >
-              <input type="text" data-th-name="${'personTasks[__${index.index}__].task.id'}"
-                     data-th-value="${person.personTasks[__${index.index}__].task.name}" hidden >
+              <input class="form-control" type="text" data-th-name="${'personTasks[__${index.index}__].task4.name'}"
+                     data-th-value="${personFinal.personTasks[__${index.index}__].task4.name}" >
+              <input type="text" data-th-name="${'personTasks[__${index.index}__].task4.id'}"
+                     data-th-value="${personFinal.personTasks[__${index.index}__].task4.name}" hidden >
               <input type="text" data-th-name="${'personTasks[__${index.index}__].id'}"
-                     data-th-value="${person.personTasks[__${index.index}__].id}" hidden >
+                     data-th-value="${personFinal.personTasks[__${index.index}__].id}" hidden >
             </td >
             <td >
               <input class="form-control" type="date"
                      data-th-name="${'personTasks[__${index.index}__].taskDateTime'}"
-                     data-th-value="${person.personTasks[__${index.index}__].taskDateTime}" >
+                     data-th-value="${personFinal.personTasks[__${index.index}__].taskDateTime}" >
             </td >
             <td >
               <select class="form-control" data-th-name="${'personTasks[__${index.index}__].taskDateTime'}"
-                      data-th-value="${person.personTasks[__${index.index}__].taskDateTime}" >
+                      data-th-value="${personFinal.personTasks[__${index.index}__].taskDateTime}" >
                 <option value="" >Select Value</option >
                 <option data-th-each="personTaskStatus : ${personTaskStatuses}"
                         data-th-value="${personTaskStatus}"
@@ -101,7 +101,7 @@
     </div >
 
     <div class="form-group" >
-      <a href="/person" >
+      <a href="/personFinal" >
         <button class="btn btn-danger" type="button" >Back</button >
       </a >
       <button class="btn btn-success" type="submit" ><span data-th-text="${addStatus==true?'Update':'Save'}" ></span >
@@ -147,13 +147,13 @@
         $("#selectedTask tbody ").html(html);
     }
 
-    function tableRowCreate(id, task) {
+    function tableRowCreate(id, task4) {
         return `<tr >
                       <th >${id + 1}
-                      <input type="hidden" id="id${id}" class="form-control"  name="personTasks[${id}].task.id" value="${task.id}">
+                      <input type="hidden" id="id${id}" class="form-control"  name="personTasks[${id}].task4.id" value="${task4.id}">
                       </th >
                       <th >
-                      <input type="text" id="na${id}" class="form-control" value="${task.name}" readonly>
+                      <input type="text" id="na${id}" class="form-control" value="${task4.name}" readonly>
                       </th >
                       <th >
                       <input type="date" id="ex${id}" class="form-control" name="personTasks[${id}].taskDateTime">

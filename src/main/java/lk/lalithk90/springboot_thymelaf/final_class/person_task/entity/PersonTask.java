@@ -1,7 +1,7 @@
 package lk.lalithk90.springboot_thymelaf.final_class.person_task.entity;
 
 
-import lk.lalithk90.springboot_thymelaf.final_class.person.entity.Person;
+import lk.lalithk90.springboot_thymelaf.final_class.person.entity.PersonFinal;
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.enums.PersonTaskStatus;
 import lk.lalithk90.springboot_thymelaf.final_class.task.entity.Task;
 import lombok.AllArgsConstructor;
@@ -31,7 +31,7 @@ public class PersonTask {
   private PersonTaskStatus personTaskStatus;
 
   @ManyToOne
-  private Person person;
+  private PersonFinal personFinal;
 
   @ManyToOne
   private Task task;

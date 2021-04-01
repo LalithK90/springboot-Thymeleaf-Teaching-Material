@@ -15,7 +15,7 @@ import java.util.Optional;
 
 
 @Controller
-public class PersonController {
+public class PersonPaginationController {
 
     private static final int BUTTONS_TO_SHOW = 5;
     private static final int INITIAL_PAGE = 0;
@@ -24,7 +24,7 @@ public class PersonController {
 
     private final PersonService personService;
 
-    public PersonController(PersonService studentService) {
+    public PersonPaginationController(PersonService studentService) {
         this.personService = studentService;
     }
 

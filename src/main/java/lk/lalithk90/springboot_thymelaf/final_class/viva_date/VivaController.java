@@ -1,7 +1,7 @@
 package lk.lalithk90.springboot_thymelaf.final_class.viva_date;
 
 import lk.lalithk90.springboot_thymelaf.final_class.common_asset.enums.LiveDead;
-import lk.lalithk90.springboot_thymelaf.final_class.person.entity.Person;
+import lk.lalithk90.springboot_thymelaf.final_class.person.entity.PersonFinal;
 import lk.lalithk90.springboot_thymelaf.final_class.person.service.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +27,9 @@ public class VivaController {
 
   @GetMapping( "/active/{id}" )
   public String activePerson(@PathVariable( "id" ) Integer id) {
-    Person personDB = personService.findById(id);
-    personDB.setLiveDead(LiveDead.ACTIVE);
-    personService.persist(personDB);
+    PersonFinal personFinalDB = personService.findById(id);
+    personFinalDB.setLiveDead(LiveDead.ACTIVE);
+    personService.persist(personFinalDB);
     return "redirect:/person";
   }
 

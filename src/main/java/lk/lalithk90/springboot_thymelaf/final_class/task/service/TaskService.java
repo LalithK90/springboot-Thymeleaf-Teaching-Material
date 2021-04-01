@@ -22,7 +22,7 @@ public class TaskService {
 
   // 2. findTask By id
   public Task findById(Integer id) {
-    //select * from Task where id =?
+    //select * from Task4 where id =?
     return taskDao.getOne(id);
   }
   // 3. saveTask updated task

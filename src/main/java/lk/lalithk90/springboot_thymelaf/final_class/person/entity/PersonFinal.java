@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class PersonFinal {
   @Id
   @GeneratedValue( strategy = GenerationType.IDENTITY )
   private Integer id;

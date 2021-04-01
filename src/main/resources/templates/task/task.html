@@ -14,7 +14,7 @@
 <!--header-->
 <div class="container-fluid" >
   <div class="col-4" >
-    <a href="/task/add" >
+    <a href="/task4/add" >
       <button class="btn btn-info" type="button" >Add</button >
     </a >
   </div >
@@ -35,13 +35,13 @@
     </tr >
     </thead >
     <tbody >
-    <tr data-th-each="task, index : ${tasks}" >
+    <tr data-th-each="task4, index : ${tasks}" >
       <td data-th-text="${index.count}" ></td >
-      <td data-th-text="${task.name}" ></td >
+      <td data-th-text="${task4.name}" ></td >
       <td >
-        <a class="btn btn-primary" data-th-href="${'/task/edit/'+task.id}" >Edit</a >
-        <a class="btn btn-danger" data-th-href="${'/task/delete/'+task.id}" >Delete</a >
-        <a class="btn btn-success" data-th-href="${'/task/view/'+task.id}" >View</a >
+        <a class="btn btn-primary" data-th-href="${'/task4/edit/'+task4.id}" >Edit</a >
+        <a class="btn btn-danger" data-th-href="${'/task4/delete/'+task4.id}" >Delete</a >
+        <a class="btn btn-success" data-th-href="${'/task4/view/'+task4.id}" >View</a >
       </td >
     </tr >
     </tbody >
