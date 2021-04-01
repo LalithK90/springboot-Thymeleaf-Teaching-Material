@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" >
-<head >
+<head data-th-replace="~{fragment/header :: headerFragment}" >
   <title >Title</title >
   <!-- Required meta tags -->
   <meta charset="utf-8" >
@@ -11,19 +11,39 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" >
 </head >
 <body >
-
-
+<!--header-->
 <div class="container-fluid" >
-  <p class="h1 text-info" >Welcome Sample One</p >
+  <div class="col-4" >
+    <a href="/task" >
+      <button class="btn btn-info" type="button" >View List</button >
+    </a >
+  </div >
+  <div class="col-4" >
+    <p class="h1" data-th-text="${addStatus==true?'Update Task':'Add New Task'}" ></p >
+  </div >
+  <div class="col-4" >
+  </div >
 </div >
-
-
 <div class="container" >
-  <form action="/message" >
-    <label for="message" >Message</label >
-    <textarea name="message" id="message" cols="30" rows="10" class="form-control" >
-    </textarea >
-    <button type="submit" class="btn btn-primary" >Submit</button >
+  <form action="/task/save" method="post" data-th-object="${task}" >
+    <!--id-->
+    <div class="form-group" data-th-if="${addStatus==true}" >
+      <label data-th-for="${'id'}" >Id</label >
+      <input type="text" class="form-control" data-th-field="*{id}" placeholder="" readonly >
+    </div >
+    <!--name-->
+    <div class="form-group" >
+      <label data-th-for="${'name'}" >Name</label >
+      <input type="text" class="form-control" data-th-field="*{name}" placeholder="" >
+    </div >
+    <div class="form-group" >
+      <a href="/task" >
+        <button class="btn btn-danger" type="button" >Back</button >
+      </a >
+      <button class="btn btn-success" type="submit" ><span data-th-text="${addStatus==true?'Update':'Save'}" ></span >
+      </button >
+      <button class="btn btn-warning" type="reset" >Clean</button >
+    </div >
   </form >
 </div >
 
@@ -38,12 +58,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous" ></script >
-
-<!--
-
-
-
-
--->
 </body >
 </html >

@@ -11,20 +11,41 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" >
 </head >
 <body >
-
-
+<!--header-->
 <div class="container-fluid" >
-  <p class="h1 text-info" >Welcome Sample One</p >
+  <div class="col-4" >
+    <a href="/task/add" >
+      <button class="btn btn-info" type="button" >Add</button >
+    </a >
+  </div >
+  <div class="col-4" >
+    <p class="h1" >All Task</p >
+  </div >
+  <div class="col-4" >
+  </div >
 </div >
-
-
+<!--data vi-->
 <div class="container" >
-  <form action="/message" >
-    <label for="message" >Message</label >
-    <textarea name="message" id="message" cols="30" rows="10" class="form-control" >
-    </textarea >
-    <button type="submit" class="btn btn-primary" >Submit</button >
-  </form >
+  <table class="table table-striped table-inverse table-responsive" >
+    <thead class="thead-inverse" >
+    <tr >
+      <th >Index</th >
+      <th >Name</th >
+      <th >Modify</th >
+    </tr >
+    </thead >
+    <tbody >
+    <tr data-th-each="task, index : ${tasks}" >
+      <td data-th-text="${index.count}" ></td >
+      <td data-th-text="${task.name}" ></td >
+      <td >
+        <a class="btn btn-primary" data-th-href="${'/task/edit/'+task.id}" >Edit</a >
+        <a class="btn btn-danger" data-th-href="${'/task/delete/'+task.id}" >Delete</a >
+        <a class="btn btn-success" data-th-href="${'/task/view/'+task.id}" >View</a >
+      </td >
+    </tr >
+    </tbody >
+  </table >
 </div >
 
 <!-- Optional JavaScript -->
@@ -38,12 +59,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous" ></script >
-
-<!--
-
-
-
-
--->
 </body >
 </html >
