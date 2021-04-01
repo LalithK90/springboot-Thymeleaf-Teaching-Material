@@ -3,26 +3,26 @@ package lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.controller;
 
 import lk.lalithk90.springboot_thymelaf.common_thing.enums.Behavior;
 import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.entity.Task;
-import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.service.TaskService;
+import lk.lalithk90.springboot_thymelaf.complete.fourthDay.task.service.Task4Service;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping( "/task" )
-public class TaskController {
+public class Task4Controller {
 
-  private final TaskService taskService;
+  private final Task4Service task4Service;
 
-  public TaskController(TaskService taskService) {
-    this.taskService = taskService;
+  public Task4Controller(Task4Service task4Service) {
+    this.task4Service = task4Service;
   }
 
 
   @GetMapping
   private String findAll(Model model) {
 
-    model.addAttribute("tasks", taskService.findAll());
+    model.addAttribute("tasks", task4Service.findAll());
 
     return "fourthDay/task/task";
   }
@@ -37,26 +37,26 @@ public class TaskController {
 
   @PostMapping
   public String persist(@ModelAttribute Task task) {
-    taskService.persist(task);
+    task4Service.persist(task);
     return "redirect:/task";
   }
 
   @GetMapping( "/edit/{id}" )
   private String edit(@PathVariable("id") Integer id, Model model) {
-     model.addAttribute("task", taskService.findById(id));
+    model.addAttribute("task", task4Service.findById(id));
     model.addAttribute("behaviours", Behavior.values());
     return "fourthDay/task/addTask";
   }
 
   @GetMapping( "/view/{id}" )
   private String view(@PathVariable("id") Integer id, Model model) {
-    model.addAttribute("taskDetail", taskService.findById(id));
+    model.addAttribute("taskDetail", task4Service.findById(id));
     return "fourthDay/task/task-detail";
   }
 
   @GetMapping( "/delete/{id}" )
   private String delete(@PathVariable("id") Integer id) {
-    taskService.deleteById(id);
+    task4Service.deleteById(id);
     return "redirect:/task";
   }
 }
