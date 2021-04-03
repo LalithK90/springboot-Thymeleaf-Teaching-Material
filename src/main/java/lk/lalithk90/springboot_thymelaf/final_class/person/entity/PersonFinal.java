@@ -1,7 +1,7 @@
 package lk.lalithk90.springboot_thymelaf.final_class.person.entity;
 
 import lk.lalithk90.springboot_thymelaf.final_class.common_asset.enums.LiveDead;
-import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonTask;
+import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonFinalTask;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +27,7 @@ public class PersonFinal {
   @Enumerated( EnumType.STRING )
   private LiveDead liveDead;
 
-  @OneToMany( mappedBy = "person", cascade = CascadeType.ALL, orphanRemoval = true )
-  private List< PersonTask > personTasks;
+  @OneToMany( mappedBy = "personFinal", cascade = CascadeType.ALL, orphanRemoval = true )
+  private List< PersonFinalTask > personFinalTasks;
 
 }

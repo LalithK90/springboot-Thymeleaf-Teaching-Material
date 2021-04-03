@@ -1,31 +1,33 @@
 package lk.lalithk90.springboot_thymelaf.final_class.person.service;
 
 import lk.lalithk90.springboot_thymelaf.final_class.common_asset.enums.LiveDead;
-import lk.lalithk90.springboot_thymelaf.final_class.person.dao.PersonDao;
+import lk.lalithk90.springboot_thymelaf.final_class.person.dao.PersonFinalDao;
 import lk.lalithk90.springboot_thymelaf.final_class.person.entity.PersonFinal;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PersonService {
-  private final PersonDao personDao;
+@Service
+public class PersonFinalService {
+  private final PersonFinalDao personFinalDao;
 
-  public PersonService(PersonDao personDao) {
-    this.personDao = personDao;
+  public PersonFinalService(PersonFinalDao personFinalDao) {
+    this.personFinalDao = personFinalDao;
   }
 
   // 1. findPerson all
   public List< PersonFinal > findAll() {
-    return personDao.findAll().stream().filter(x -> x.getLiveDead().equals(LiveDead.ACTIVE)).collect(Collectors.toList());
+    return personFinalDao.findAll().stream().filter(x -> x.getLiveDead().equals(LiveDead.ACTIVE)).collect(Collectors.toList());
   }
 
   public List< PersonFinal > findAllStop() {
-    return personDao.findAll().stream().filter(x -> x.getLiveDead().equals(LiveDead.STOP)).collect(Collectors.toList());
+    return personFinalDao.findAll().stream().filter(x -> x.getLiveDead().equals(LiveDead.STOP)).collect(Collectors.toList());
   }
 
   // 2. findPerson By id
   public PersonFinal findById(Integer id) {
-    return personDao.getOne(id);
+    return personFinalDao.getOne(id);
   }
   // 3. savePerson updated person
 
@@ -33,14 +35,14 @@ public class PersonService {
     if ( personFinal.getId() == null ) {
       personFinal.setLiveDead(LiveDead.ACTIVE);
     }
-    return personDao.save(personFinal);
+    return personFinalDao.save(personFinal);
   }
 
   // 4. deletePerson
   public boolean delete(Integer id) {
-    PersonFinal personFinal = personDao.getOne(id);
+    PersonFinal personFinal = personFinalDao.getOne(id);
     personFinal.setLiveDead(LiveDead.STOP);
-    personDao.save(personFinal);
+    personFinalDao.save(personFinal);
     return false;
   }
 

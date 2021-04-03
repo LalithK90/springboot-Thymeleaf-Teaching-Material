@@ -1,8 +1,8 @@
 package lk.lalithk90.springboot_thymelaf.final_class.person.controller;
 
 import lk.lalithk90.springboot_thymelaf.final_class.person.entity.PersonFinal;
-import lk.lalithk90.springboot_thymelaf.final_class.person.service.PersonService;
-import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonTask;
+import lk.lalithk90.springboot_thymelaf.final_class.person.service.PersonFinalService;
+import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonFinalTask;
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.enums.PersonTaskStatus;
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.service.PersonTaskService;
 import lk.lalithk90.springboot_thymelaf.final_class.task.service.TaskService;
@@ -15,13 +15,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping( "/person" )
-public class PersonController {
-  private final PersonService personService;
+public class PersonFinalController {
+  private final PersonFinalService personFinalService;
   private final TaskService taskService;
   private final PersonTaskService personTaskService;
 
-  public PersonController(PersonService personService, TaskService taskService, PersonTaskService personTaskService) {
-    this.personService = personService;
+  public PersonFinalController(PersonFinalService personFinalService, TaskService taskService,
+                               PersonTaskService personTaskService) {
+    this.personFinalService = personFinalService;
     this.taskService = taskService;
     this.personTaskService = personTaskService;
   }
@@ -30,7 +31,7 @@ public class PersonController {
   // 1. all PersonFinal
   @GetMapping
   public String findAllPerson(Model model) {
-    model.addAttribute("persons", personService.findAll());
+    model.addAttribute("persons", personFinalService.findAll());
     return "person/person";
   }
 
@@ -44,14 +45,14 @@ public class PersonController {
   // 3. save/update
   @PostMapping( "/save" )
   public String persist(@ModelAttribute PersonFinal personFinal) {
-    List< PersonTask > personTaskList = new ArrayList<>();
+    List< PersonFinalTask > personFinalTaskList = new ArrayList<>();
 
-    for ( PersonTask personTask : personFinal.getPersonTasks() ) {
-      personTask.setPersonFinal(personFinal);
-      personTaskList.add(personTask);
+    for ( PersonFinalTask personFinalTask : personFinal.getPersonFinalTasks() ) {
+      personFinalTask.setPersonFinal(personFinal);
+      personFinalTaskList.add(personFinalTask);
     }
-    personFinal.setPersonTasks(personTaskList);
-    personService.persist(personFinal);
+    personFinal.setPersonFinalTasks(personFinalTaskList);
+    personFinalService.persist(personFinal);
     return "redirect:/person";
   }
 
@@ -66,20 +67,20 @@ public class PersonController {
   // 4. edit
   @GetMapping( "/edit/{id}" )
   public String editPerson(@PathVariable( "id" ) Integer id, Model model) {
-    return common(model, personService.findById(id), true);
+    return common(model, personFinalService.findById(id), true);
   }
 
   // 5. delete
   @GetMapping( "/delete/{id}" )
   public String deletePerson(@PathVariable( "id" ) Integer id) {
-    personService.delete(id);
+    personFinalService.delete(id);
     return "redirect:/person";
   }
 
   // 6. views
   @GetMapping( "/view/{id}" )
   public String viewPerson(@PathVariable( "id" ) Integer id, Model model) {
-    model.addAttribute("personDetail", personService.findById(id));
+    model.addAttribute("personDetail", personFinalService.findById(id));
     return "person/person-detail";
   }
 }

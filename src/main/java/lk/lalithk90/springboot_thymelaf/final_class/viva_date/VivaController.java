@@ -2,7 +2,7 @@ package lk.lalithk90.springboot_thymelaf.final_class.viva_date;
 
 import lk.lalithk90.springboot_thymelaf.final_class.common_asset.enums.LiveDead;
 import lk.lalithk90.springboot_thymelaf.final_class.person.entity.PersonFinal;
-import lk.lalithk90.springboot_thymelaf.final_class.person.service.PersonService;
+import lk.lalithk90.springboot_thymelaf.final_class.person.service.PersonFinalService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,30 +12,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping( "/viva" )
 public class VivaController {
-  private final PersonService personService;
+  private final PersonFinalService personFinalService;
 
-  public VivaController(PersonService personService) {
-    this.personService = personService;
+  public VivaController(PersonFinalService personFinalService) {
+    this.personFinalService = personFinalService;
   }
 
   @GetMapping
   public String stopAll(Model model) {
     model.addAttribute("activeStatus", true);
-    model.addAttribute("persons", personService.findAllStop());
+    model.addAttribute("persons", personFinalService.findAllStop());
     return "person/person";
   }
 
   @GetMapping( "/active/{id}" )
   public String activePerson(@PathVariable( "id" ) Integer id) {
-    PersonFinal personFinalDB = personService.findById(id);
+    PersonFinal personFinalDB = personFinalService.findById(id);
     personFinalDB.setLiveDead(LiveDead.ACTIVE);
-    personService.persist(personFinalDB);
+    personFinalService.persist(personFinalDB);
     return "redirect:/person";
   }
 
   @GetMapping( "/edit/{id}" )
   public String activePersonLong(@PathVariable( "id" ) Integer id, Model model) {
-    model.addAttribute("person", personService.findById(id));
+    model.addAttribute("person", personFinalService.findById(id));
     model.addAttribute("liveDeads", LiveDead.values());
     model.addAttribute("activeStatus", true);
     return "viva/addPerson";

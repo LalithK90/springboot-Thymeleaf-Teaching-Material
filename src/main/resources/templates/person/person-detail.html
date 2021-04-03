@@ -51,11 +51,11 @@
       </tr >
       </thead >
       <tbody >
-      <tr data-th-each="personTask, index : ${personDetail.personTasks} " >
+      <tr data-th-each="personFinalTask, index : ${personDetail.personTasks} " >
         <td data-th-text="${index.count}" ></td >
-        <td data-th-text="${personTask.task4.name}" ></td >
-        <td data-th-text="${personTask.taskDateTime}" ></td >
-        <td data-th-text="${personTask.personTaskStatus.personTaskStatus}" ></td >
+        <td data-th-text="${personFinalTask.task4.name}" ></td >
+        <td data-th-text="${personFinalTask.taskDateTime}" ></td >
+        <td data-th-text="${personFinalTask.personTaskStatus.personTaskStatus}" ></td >
       </tr >
       </tbody >
     </table >

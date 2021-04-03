@@ -1,7 +1,7 @@
 package lk.lalithk90.springboot_thymelaf.final_class.person_task.service;
 
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.dao.PersonTaskDao;
-import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonTask;
+import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonFinalTask;
 import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.enums.PersonTaskStatus;
 import org.springframework.stereotype.Service;
 
@@ -16,28 +16,28 @@ public class PersonTaskService {
   }
 
   // 1. findPersonTask all
-  public List< PersonTask > findAll() {
+  public List< PersonFinalTask > findAll() {
     return personTaskDao.findAll();
   }
 
   // 2. findPersonTask By id
-  public PersonTask findById(Integer id) {
+  public PersonFinalTask findById(Integer id) {
     return personTaskDao.getOne(id);
   }
   // 3. savePersonTask updated person
 
-  public PersonTask persist(PersonTask personTask) {
-    if ( personTask.getId() == null ) {
-      personTask.setPersonTaskStatus(PersonTaskStatus.AC);
+  public PersonFinalTask persist(PersonFinalTask personFinalTask) {
+    if ( personFinalTask.getId() == null ) {
+      personFinalTask.setPersonTaskStatus(PersonTaskStatus.AC);
     }
-    return personTaskDao.save(personTask);
+    return personTaskDao.save(personFinalTask);
   }
 
   // 4. deletePersonTask
   public boolean delete(Integer id) {
-    PersonTask personTask = personTaskDao.getOne(id);
-    personTask.setPersonTaskStatus(PersonTaskStatus.CL);
-    personTaskDao.save(personTask);
+    PersonFinalTask personFinalTask = personTaskDao.getOne(id);
+    personFinalTask.setPersonTaskStatus(PersonTaskStatus.CL);
+    personTaskDao.save(personFinalTask);
     return false;
   }
 

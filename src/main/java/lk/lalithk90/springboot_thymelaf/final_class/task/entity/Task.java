@@ -1,6 +1,6 @@
 package lk.lalithk90.springboot_thymelaf.final_class.task.entity;
 
-import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonTask;
+import lk.lalithk90.springboot_thymelaf.final_class.person_task.entity.PersonFinalTask;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +22,6 @@ public class Task {
   private String name;
 
   @OneToMany( mappedBy = "task" )
-  private List< PersonTask > personTasks;
+  private List< PersonFinalTask > personFinalTasks;
 
 }

@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping( "/task" )
+@RequestMapping( "/task4" )
 public class Task4Controller {
 
   private final Task4Service task4Service;

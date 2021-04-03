@@ -67,7 +67,7 @@
           </tr >
           </thead >
           <tbody >
-          <tr data-th-each="personTask, index : ${personFinal.personTasks}" >
+          <tr data-th-each="personFinalTask, index : ${personFinal.personTasks}" >
             <td >
               <input class="form-control" type="text" data-th-name="${'personTasks[__${index.index}__].task4.name'}"
                      data-th-value="${personFinal.personTasks[__${index.index}__].task4.name}" >

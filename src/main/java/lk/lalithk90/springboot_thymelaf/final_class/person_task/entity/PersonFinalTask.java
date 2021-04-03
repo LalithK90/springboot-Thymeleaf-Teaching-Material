@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonTask {
+public class PersonFinalTask {
   @Id
   @GeneratedValue( strategy = GenerationType.IDENTITY )
   private Integer id;
