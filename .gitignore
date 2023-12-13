@@ -30,3 +30,11 @@ out/
 
 ### VS Code ###
 .vscode/
+.DS_Store
+
+#remove from cache
+*.data
+*.index
+*.meta
+/eh_cache
+

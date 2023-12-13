@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous" />
+    </head>
+
+    <body>
+
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col">
+                <!--Heading Area-->
+                <div class="row">
+                    <div class="container text-center">
+                        <div class="row">
+                            <!-- form name -->
+                            <div class="col">
+                                <h4 class="text-center">
+                                    <strong>
+                                        Years Management
+                                    </strong>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- list -->
+                            <div class="col">
+                                <a class="btn btn-outline-success" data-th-href="${'/years/add'}">
+                                    <i aria-hidden="true" class=" fa fa-plus"></i> &nbsp; Add Years </a>
+                            </div>
+                            <!-- home -->
+                            <div class="col">
+                                <a class="btn btn-outline-info" href="/home">
+                                    <i aria-hidden="true" class="fa fa-home"></i> &nbsp; Home
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="container-fluid">
+                        <!--Table view-->
+                        <div class="row">
+                            <div class="table-responsive-sm" data-th-if="${not #lists.isEmpty(yearses)}">
+                                <table class="table table-hover table-striped" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th> Index</th>
+                                            <th> Item Id</th>
+                                            <th> Year Number</th>
+                                            <th> Modify</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-th-each="years, rowCount : ${yearses}">
+                                            <th data-th-text="${rowCount.count}"></th>
+                                            <th data-th-text="${years.id}"></th>
+                                            <th data-th-text="${years.year}"></th>
+                                            <th>
+                                                <a class="btn btn-outline-primary "
+                                                    data-th-href="${'/years/' + years.id}" id="categoryView"><i
+                                                        class="fa fa-folder-open"
+                                                        style="font-size: 15px"></i>&nbsp;View</a>
+                                                <a class="btn btn-outline-success "
+                                                    data-th-href="${'/years/edit/' + years.id}" id="categoryEdit"><i
+                                                        class="fa fa-edit" style="font-size: 15px"></i>&nbsp;Edit</a>
+                                                <a class="btn btn-outline-danger "
+                                                    data-th-href="${'/years/remove/' + years.id}" id="categoryRemove">
+                                                    <i class="fa fa-trash" style="font-size: 15px"></i>
+                                                    Delete</a>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--Error-->
+                        <div class="row" data-th-if="${ #lists.isEmpty(yearses)}">
+                            <div class="col-sm-12">
+                                <div class="col-sm-12 text-center">
+                                    <div class="alert alert-info alert-dismissible fade show">
+                                        <button class="btn-close" data-bs-dismiss="alert" type="button"></button>
+                                        <strong>There are no years up to now please add years to the system using "New"
+                                            button.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                crossorigin="anonymous"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+                integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+                crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>

@@ -1,9 +1,0 @@
-package lk.lalithk90.springboot_thymelaf.hibernate.oneToOneBiDeleteInstructorDetailOnly.dao;
-
-import lk.lalithk90.springboot_thymelaf.hibernate.oneToOneBiDeleteInstructorDetailOnly.entity.InstructorOneToOneBiDeleteInstructorDetailOnly;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface InstructorOneToOneBiDeleteInstructorDetailOnlyRepository extends JpaRepository< InstructorOneToOneBiDeleteInstructorDetailOnly, Integer > {
-}
