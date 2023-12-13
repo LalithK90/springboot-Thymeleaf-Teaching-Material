@@ -1,39 +1,22 @@
-package cyou.lositha.springehcacheexample;
-
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+package cyou.lositha.springehcacheexample.url_related;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-@RestController
-public class MappingController {
-    @Autowired
-    AnnotationService annotationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-    @GetMapping("/test/mappedUrls")
-    public ResponseEntity<List<String>> getUrls() {
-        return new ResponseEntity<>(annotationService.getGetMappingUrls(), HttpStatus.OK);
-    }
-
-}
+import jakarta.servlet.http.HttpServletRequest;
 
 @Service
-class AnnotationService {
+public class AnnotationService {
 
     @Autowired
     private HttpServletRequest httpServletRequest;
@@ -57,12 +40,11 @@ class AnnotationService {
             HandlerMethod handlerMethod = entry.getValue();
             if (handlerMethod.getMethodAnnotation(GetMapping.class) != null) {
                 for (String string : handlerMethod.getMethodAnnotation(GetMapping.class).path()) {
-                    urls.add(newUrlString+string);
+                    urls.add(newUrlString + string);
                 }
             }
         }
         return urls;
     }
-
 
 }

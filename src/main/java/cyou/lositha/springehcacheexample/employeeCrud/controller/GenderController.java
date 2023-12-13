@@ -68,7 +68,7 @@ public class GenderController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editGender(@PathVariable int id, Model model) {
+    public String editGender(@PathVariable Long id, Model model) {
         // 5.done
         model.addAttribute("addStatus", true);
         model.addAttribute("gender", genderService.findById(id));
@@ -76,14 +76,14 @@ public class GenderController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteGender(@PathVariable int id) {
+    public String deleteGender(@PathVariable Long id) {
         // 6.done
         genderService.delete(id);
         return "redirect:/gender";
     }
 
     @GetMapping("/{id}")
-    public String viewGender(@PathVariable int id, Model model) {
+    public String viewGender(@PathVariable Long id, Model model) {
         // 6.done
         model.addAttribute("gender", genderService.findById(id));
         return "employee/gender/gender-detail";
@@ -93,7 +93,7 @@ public class GenderController {
     public ModelAndView showPersonsPage(@RequestParam("pageSize") Optional<Integer> pageSize,
             @RequestParam("page") Optional<Integer> page) {
         ModelAndView modelAndView = new ModelAndView("employee/gender/genderNew");
-        ArrayList<Integer> PAGE_SIZES = new ArrayList<Integer>();
+        ArrayList<Long> PAGE_SIZES = new ArrayList<Long>();
         // Evaluate page size. If requested parameter is null, return initial
         // page size
         int evalPageSize = pageSize.orElse(INITIAL_PAGE_SIZE);
@@ -106,9 +106,9 @@ public class GenderController {
 
         for (int i = 1; i <= 4; i++) {
             if (i <= 3) {
-                PAGE_SIZES.add(INITIAL_PAGE_SIZE * i);
+                PAGE_SIZES.add((long) (INITIAL_PAGE_SIZE * i));
             } else {
-                PAGE_SIZES.add((int) persons.getTotalElements());
+                PAGE_SIZES.add((long) persons.getTotalElements());
             }
         }
         System.out.println("all pages " + persons.getTotalElements());

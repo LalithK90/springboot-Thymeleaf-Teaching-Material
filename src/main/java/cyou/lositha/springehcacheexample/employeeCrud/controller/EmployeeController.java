@@ -1,14 +1,23 @@
 package cyou.lositha.springehcacheexample.employeeCrud.controller;
 
-import cyou.lositha.springehcacheexample.employeeCrud.entity.Employee;
-import cyou.lositha.springehcacheexample.employeeCrud.entity.Enum.CivilStatus;
-import cyou.lositha.springehcacheexample.employeeCrud.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import cyou.lositha.springehcacheexample.employeeCrud.entity.Employee;
+import cyou.lositha.springehcacheexample.employeeCrud.entity.Enum.CivilStatus;
+import cyou.lositha.springehcacheexample.employeeCrud.service.DesignationService;
+import cyou.lositha.springehcacheexample.employeeCrud.service.EmployeeService;
+import cyou.lositha.springehcacheexample.employeeCrud.service.GenderService;
+import cyou.lositha.springehcacheexample.employeeCrud.service.HobbiesService;
+import cyou.lositha.springehcacheexample.employeeCrud.service.WeekDayService;
 
 @Controller
 @RequestMapping("/employeeCrud")
@@ -96,7 +105,7 @@ public class EmployeeController {
 
     // give one employee to edit details according to employee id
     @GetMapping("/edit/{id}")
-    public String getEmployee(@PathVariable("id") Integer id, Model model) {
+    public String getEmployee(@PathVariable("id") Long id, Model model) {
         model.addAttribute("employee", employeeService.findById(id));
         model.addAttribute("addStatus", false);
         return commonCode(model);
@@ -104,7 +113,7 @@ public class EmployeeController {
 
     // according to given id employee delete from DB
     @GetMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable("id") Integer id) {
+    public String deleteEmployee(@PathVariable("id") Long id) {
         employeeService.delete(id);
         return "redirect:/employee";
     }

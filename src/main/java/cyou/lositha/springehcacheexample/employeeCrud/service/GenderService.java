@@ -13,35 +13,35 @@ import cyou.lositha.springehcacheexample.employeeCrud.entity.Gender;
 import cyou.lositha.springehcacheexample.employeeCrud.service.util.AbstractService;
 
 @Service
-public class GenderService implements AbstractService<Gender, Integer> {
+public class GenderService {
     private final GenderRepository genderRepository;
 
     public GenderService(GenderRepository genderRepository) {
         this.genderRepository = genderRepository;
     }
 
-    @Override
+   
     public List<Gender> findAll() {
         return genderRepository.findAll();
     }
 
-    @Override
-    public Gender findById(Integer id) {
+   
+    public Gender findById(Long id) {
         return genderRepository.getReferenceById(id);
     }
 
-    @Override
+   
     public Gender persist(Gender gender) {
         return genderRepository.save(gender);
     }
 
-    @Override
-    public boolean delete(Integer id) {
+   
+    public boolean delete(Long id) {
         genderRepository.deleteById(id);
         return true;
     }
 
-    @Override
+   
     public List<Gender> search(Gender gender) {
         ExampleMatcher matcher = ExampleMatcher
                 .matching()

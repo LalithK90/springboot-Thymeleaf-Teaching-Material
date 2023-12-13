@@ -24,7 +24,7 @@ import lombok.Setter;
 public class Designation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotNull(message = "Pay roll number is required")
     @Column(unique = true)

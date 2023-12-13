@@ -2,7 +2,7 @@ package cyou.lositha.springehcacheexample.employeeCrud.entity;
 
 import java.util.List;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +25,7 @@ import lombok.ToString;
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotNull(message = "Pay roll number is required")
     // @Column( unique = true )

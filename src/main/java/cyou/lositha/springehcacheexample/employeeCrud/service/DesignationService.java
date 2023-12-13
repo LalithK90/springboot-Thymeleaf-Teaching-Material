@@ -2,6 +2,8 @@ package cyou.lositha.springehcacheexample.employeeCrud.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import cyou.lositha.springehcacheexample.employeeCrud.dao.DesignationRepository;
@@ -9,35 +11,41 @@ import cyou.lositha.springehcacheexample.employeeCrud.entity.Designation;
 import cyou.lositha.springehcacheexample.employeeCrud.service.util.AbstractService;
 
 @Service
-public class DesignationService implements AbstractService<Designation, Integer> {
+public class DesignationService implements AbstractService<Designation, Long> {
     private final DesignationRepository designationRepository;
 
     public DesignationService(DesignationRepository designationRepository) {
         this.designationRepository = designationRepository;
     }
 
-    @Override
+   
     public List<Designation> findAll() {
         return designationRepository.findAll();
     }
 
-    @Override
-    public Designation findById(Integer id) {
-        return null;
+   
+    public Designation findById(Long id) {
+        return designationRepository.getReferenceById(id);
     }
 
-    @Override
+   
     public Designation persist(Designation designation) {
-        return null;
+        return designationRepository.save(designation);
     }
 
-    @Override
-    public boolean delete(Integer id) {
+   
+    public boolean delete(Long id) {
+        designationRepository.deleteById(id);
         return false;
     }
 
-    @Override
+   
     public List<Designation> search(Designation designation) {
-        return null;
+        ExampleMatcher matcher = ExampleMatcher
+                .matching()
+                .withIgnoreCase()
+                .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+        Example<Designation> employeeExample = Example.of(designation, matcher);
+        return designationRepository.findAll(employeeExample);
     }
 }

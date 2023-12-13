@@ -11,35 +11,35 @@ import cyou.lositha.springehcacheexample.employeeCrud.entity.Employee;
 import cyou.lositha.springehcacheexample.employeeCrud.service.util.AbstractService;
 
 @Service
-public class EmployeeService implements AbstractService<Employee, Integer> {
+public class EmployeeService implements AbstractService<Employee, Long> {
     private final EmployeeRepository employeeRepository;
 
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
-    @Override
+   
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }
 
-    @Override
-    public Employee findById(Integer id) {
+   
+    public Employee findById(Long id) {
         return employeeRepository.getReferenceById(id);
     }
 
-    @Override
+   
     public Employee persist(Employee employee) {
         return employeeRepository.save(employee);
     }
 
-    @Override
-    public boolean delete(Integer id) {
+   
+    public boolean delete(Long id) {
         employeeRepository.deleteById(id);
         return false;
     }
 
-    @Override
+   
     public List<Employee> search(Employee employee) {
         ExampleMatcher matcher = ExampleMatcher
                 .matching()

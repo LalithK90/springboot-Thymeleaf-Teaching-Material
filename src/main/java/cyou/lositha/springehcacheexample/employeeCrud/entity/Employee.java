@@ -36,7 +36,7 @@ import lombok.ToString;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @NotNull(message = "Name is required")
     @Size(min = 5, message = "Your name cannot be accept")

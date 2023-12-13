@@ -21,7 +21,7 @@ import lombok.ToString;
 public class Hobbies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String name;
 
