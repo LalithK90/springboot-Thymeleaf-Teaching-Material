@@ -6,18 +6,18 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import cyou.lositha.springehcacheexample.employeeCrud.dao.EmployeeRepository;
 import cyou.lositha.springehcacheexample.employeeCrud.entity.Employee;
+import cyou.lositha.springehcacheexample.employeeCrud.service.EmployeeService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 @Service
+@AllArgsConstructor
 public class PrintingCheckService {
-    private final EmployeeRepository employeeDao;
+    private final EmployeeService employeeDao;
 
-    public PrintingCheckService(EmployeeRepository employeeDao) {
-        this.employeeDao = employeeDao;
-    }
 
     public ByteArrayInputStream createPDF() throws DocumentException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();

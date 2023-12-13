@@ -38,5 +38,44 @@
             <disk persistent="true" unit="MB">20</disk>
         </resources>
     </cache>
+    <!-- employee -->
+    <cache alias="employee" uses-template="default">
+        <key-type>java.lang.Long</key-type>
+        <value-type>cyou.lositha.springehcacheexample.employeeCrud.entity.Employee</value-type>
+        <expiry>
+            <ttl unit="seconds">30</ttl>
+        </expiry>
+        <resources>
+            <heap>1000</heap>
+            <offheap unit="MB">10</offheap>
+            <disk persistent="true" unit="MB">20</disk>
+        </resources>
+    </cache>
+    <!-- gender -->
+    <cache alias="gender" uses-template="default">
+        <key-type>java.lang.Long</key-type>
+        <value-type>cyou.lositha.springehcacheexample.employeeCrud.entity.Gender</value-type>
+        <expiry>
+            <ttl unit="seconds">30</ttl>
+        </expiry>
+        <resources>
+            <heap>1000</heap>
+            <offheap unit="MB">10</offheap>
+            <disk persistent="true" unit="MB">20</disk>
+        </resources>
+    </cache>
+    <!-- designation -->
+    <cache alias="designation" uses-template="default">
+        <key-type>java.lang.Long</key-type>
+        <value-type>cyou.lositha.springehcacheexample.employeeCrud.entity.Designation</value-type>
+        <expiry>
+            <ttl unit="seconds">30</ttl>
+        </expiry>
+        <resources>
+            <heap>1000</heap>
+            <offheap unit="MB">10</offheap>
+            <disk persistent="true" unit="MB">20</disk>
+        </resources>
+    </cache>
 
 </config>

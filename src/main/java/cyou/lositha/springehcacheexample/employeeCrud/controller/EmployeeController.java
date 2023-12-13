@@ -47,7 +47,7 @@ public class EmployeeController {
         model.addAttribute("weekDays", weekDayService.findAll());
         // send available employee List
         model.addAttribute("employeeList", employeeService.findAll());
-        return "/employee/employee.html";
+        return "employee/employee";
     }
 
     // give employee add from
@@ -93,6 +93,7 @@ public class EmployeeController {
          * Allows for accessing the overall model as a java.util.Map.
          */
         if (result.hasErrors()) {
+            result.getAllErrors().forEach(System.out::println);
             redirectAttributes.addFlashAttribute("employee", employee);
             model.addAttribute("addStatus", true);
             return commonCode(model);

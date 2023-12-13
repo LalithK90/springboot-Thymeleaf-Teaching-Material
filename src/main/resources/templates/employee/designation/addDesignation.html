@@ -18,14 +18,14 @@
                 data-th-text="${addState==false?'New Gender' : 'Update Gender'}" ></h3 >
         </div>
         <div class="col-4 text-center p-2">
-            <a href="/gender">
+            <a href="/designation">
                 <button class="btn btn-primary"><i class="fa fa-list mr-4"></i>List</button>
             </a>
         </div>
     </div>
 </div>
 <div class="container-fluid">
-    <form data-th-action="${addState==false?'/gender/save' :'/gender/update'}" method="post" data-th-object="${gender}"
+    <form data-th-action="${addState==false?'/designation/save' :'/designation/update'}" method="post" data-th-object="${designation}"
           class="mt-3" >
         <div class="offset-3 col-6" >
             <!--/* id this comment not visualize */-->

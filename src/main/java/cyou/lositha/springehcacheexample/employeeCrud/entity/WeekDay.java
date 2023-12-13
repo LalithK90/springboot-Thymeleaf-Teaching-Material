@@ -16,8 +16,6 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-@ToString
 public class WeekDay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -12,10 +12,10 @@ public class CustomCacheEventLogger implements CacheEventListener<Object, Object
 
    
     public void onEvent(CacheEvent<?, ?> cacheEvent) {
-        // log.info("Key: {} | EventType: {} | Old value: {} | New value: {}",
-        // cacheEvent.getKey(), cacheEvent.getType(), cacheEvent.getOldValue(),
-        // cacheEvent.getNewValue());
-        log.info("Key: {} | EventType: {} |",
-                cacheEvent.getKey(), cacheEvent.getType());
+         log.info("Key: {} | EventType: {} | Old value: {} | New value: {}",
+         cacheEvent.getKey(), cacheEvent.getType(), cacheEvent.getOldValue(),
+         cacheEvent.getNewValue());
+//        log.info("Key: {} | EventType: {} |",
+//                cacheEvent.getKey(), cacheEvent.getType());
     }
 }
